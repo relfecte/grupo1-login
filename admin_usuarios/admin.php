@@ -36,6 +36,12 @@ if(!isset($_SESSION['email'])){
 </head>
 <body>
     <a href="./inc/logout.php">Cerrar sesión</a>
+    <nav>
+        <ul>
+            <li><a href="admin.php">Usuarios</a></li>
+            <li><a href="admin_quizWUR.php">Quiz</a></li>
+        </ul>
+    </nav>
     <h1>Administración de Usuarios</h1>
     <?php
         include "./inc/mostrar_db.php"
