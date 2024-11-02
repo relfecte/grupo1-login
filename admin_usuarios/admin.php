@@ -20,10 +20,9 @@ if(!isset($_SESSION['email'])){
     echo'
         <script>
             alert("Por favor debes iniciar sesión como administrador");
-            window.location = "index.php";
+            window.location = "bienvenida.php";
         </script>';
-    session_destroy();
-    die();
+    
 }
 ?>
 <!DOCTYPE html>
