@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'conexion_db.php';
+    include '../conexion_db.php';
 
     $email=$_POST['email'];
     $clave=$_POST['clave'];
@@ -14,7 +14,7 @@
         echo '
             <script>
                 alert("Ingresa un email válido.");
-                window.location = "../index.php";
+                window.location = "../../index.php";
             </script>
         ';
         exit();
@@ -24,7 +24,7 @@
         echo '
             <script>
                 alert("La clave debe tener al menos 6 caracteres.");
-                window.location = "../index.php";
+                window.location = "../../index.php";
             </script>
         ';
         exit();
@@ -47,11 +47,11 @@
         // Comprobar si el usuario es administrador (usuario_admin == 1)
         if ($user['usuario_admin'] == 1) {
             // Redirigir a la página de administración
-            header("Location: ../admin.php");
+            header("Location: ../../admin.php");
             exit();
         } else {
             // Redirigir a la página de bienvenida si es un usuario normal
-            header("Location: ../bienvenida.php");
+            header("Location: ../../bienvenida.php");
             exit();
         }
             }else{
@@ -59,7 +59,7 @@
         echo '
             <script>
                 alert("Usuario no existe, por favor verifique los datos introducidos");
-                window.location = "../index.php";
+                window.location = "../../index.php";
             </script>
         ';
         exit();

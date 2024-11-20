@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/usuario_form_estilos.css">
+<link rel="stylesheet" href="../../css/usuario_form_estilos.css">
 <?php
 // Verificar si estamos en modo edición o creación
 $is_edit = isset($user);
@@ -15,7 +15,7 @@ $admin = $_POST['admin'] ?? ($is_edit ? $user['usuario_admin'] : 0); // Valor po
 
 <h2><?php echo $is_edit ? "Editar usuario" : "Crear un nuevo usuario"; ?></h2>
 
-<form action="<?php echo $is_edit ? "../inc/editar_db.php?id={$user['usuario_id']}" : "../inc/crear_db.php"; ?>" method="POST">
+<form action="<?php echo $is_edit ? "../admin_usuarios/editar_db.php?id={$user['usuario_id']}" : "../admin_usuarios/crear_db.php"; ?>" method="POST">
 <label>Nombre:</label>
     <input type="text" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
     <br>

@@ -1,5 +1,5 @@
 <?php
-include "conexion_db.php";
+include "../conexion_db.php";
 
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
@@ -19,7 +19,7 @@ if (!preg_match($nombre_pattern, $nombre)) {
     echo "
         <script>
             alert('El nombre debe contener entre 3 y 40 letras.');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
     exit();
 }
@@ -28,7 +28,7 @@ if (!preg_match($apellido_pattern, $apellido)) {
     echo "
         <script>
             alert('El apellido debe contener entre 3 y 40 letras.');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
     exit();
 }
@@ -37,7 +37,7 @@ if (!preg_match($usuario_pattern, $usuario)) {
     echo "
         <script>
             alert('El usuario debe contener entre 3 y 20 caracteres alfanuméricos.');
-            window.location = '../index.php';
+            window.location = '../../quizShow/index.php';
         </script>";
     exit();
 }
@@ -46,7 +46,7 @@ if (!preg_match($email_pattern, $email)) {
     echo "
         <script>
             alert('Ingresa un email válido.');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
     exit();
 }
@@ -55,7 +55,7 @@ if (!preg_match($clave_pattern, $clave)) {
     echo "
         <script>
             alert('La clave debe tener al menos 6 caracteres.');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
     exit();
 }
@@ -87,7 +87,7 @@ if(mysqli_num_rows($verificar_correo) > 0) {
     echo "
         <script>
             alert('Este correo ya está registrado, intenta con otro diferente');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
         mysqli_close($conexion);
     exit();
@@ -98,7 +98,7 @@ if(mysqli_num_rows($verificar_usuario) > 0) {
     echo "
         <script>
             alert('Este cusuario ya está registrado, intenta con otro diferente');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
         mysqli_close($conexion);
     exit();
@@ -111,13 +111,13 @@ if ($ejecutar) {
     echo "
         <script>
             alert('Usuario registrado correctamente');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
 } else{
     echo "
         <script>
             alert('Intentelo de nuevo, Usuario no registrado');
-            window.location = '../index.php';
+            window.location = '../../index.php';
         </script>";
 }
 

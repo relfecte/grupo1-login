@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 */
 
-include 'conexion_db.php'; // Conexión a la base de datos
+include $_SERVER['DOCUMENT_ROOT'] . '/grupo1-login/quizShow/inc/conexion_db.php'; // Conexión a la base de datos
 
 /*// Inicializar variables para mantener los valores del formulario
 $nombre = '';
@@ -162,14 +162,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '
                 <script>
                     alert("Usuario creado exitosamente.");
-                    window.location = "../admin.php"; // Redirigir al panel de administración
+                    window.location = "../../admin.php"; // Redirigir al panel de administración
                 </script>
             ';
         } else {
             echo '
                 <script>
                     alert("Error al crear el usuario: ' . mysqli_error($conexion) . '");
-                    window.location = "../admin.php"; // Redirigir de vuelta al formulario
+                    window.location = "../../admin.php"; // Redirigir de vuelta al formulario
                 </script>
             ';
         }
@@ -181,6 +181,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_close($conexion);
 }
 
-include '../vistas/usuario_form.php'; // Reutilizar el formulario
+include '../../vistas/usuario_form.php'; // Reutilizar el formulario
 ?>
 

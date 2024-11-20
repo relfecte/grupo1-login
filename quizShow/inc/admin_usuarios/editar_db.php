@@ -1,5 +1,5 @@
 <?php
-include 'conexion_db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/grupo1-login/quizShow/inc/conexion_db.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -105,14 +105,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '
                 <script>
                     alert("Usuario actualizado exitosamente.");
-                    window.location = "../admin.php";
+                    window.location = "../../admin.php";
                 </script>
             ';
         } else {
             echo '
                 <script>
                     alert("Error al actualizar el usuario: ' . mysqli_error($conexion) . '");
-                    window.location = "../admin.php";
+                    window.location = "../../admin.php";
                 </script>
             ';
         }
@@ -131,5 +131,5 @@ $usuario = isset($user['usuario_usuario']) ? $user['usuario_usuario'] : '';
 $email = isset($user['usuario_email']) ? $user['usuario_email'] : '';
 $admin = isset($user['usuario_admin']) ? $user['usuario_admin'] : 0; // Valor por defecto
 
-include '../vistas/usuario_form.php'; // Reutilizar el formulario
+include '../../vistas/usuario_form.php'; // Reutilizar el formulario
 ?>

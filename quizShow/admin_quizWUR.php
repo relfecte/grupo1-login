@@ -35,7 +35,7 @@ if(!isset($_SESSION['email'])){
     
 </head>
 <body>
-    <a href="./inc/logout.php">Cerrar sesión</a>
+    <a href="./inc/login/logout.php">Cerrar sesión</a>
     <nav>
         <ul>
             <li><a href="admin.php">Usuarios</a></li>
