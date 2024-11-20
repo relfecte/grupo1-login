@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizShow - Bienvenido</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Títulos principales -->
+    <header>
+        <h1 class="main-title">Bienvenido a QuizShow</h1>
+        <h2 class="subtitle">Bienvenido</h2>
+        <p class="description">Selecciona una opción para comenzar:</p>
+    </header>
+
+    <!-- Botones de Login y Registro -->
+    <div class="button-container">
+        <button class="action-btn" id="loginBtn">Login</button>
+        <button class="action-btn" id="registerBtn">Regístrate</button>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h3>Iniciar sesión</h3>
+            <form class="form-container" action="./inc/login_usuario.php" method="POST">
+                <label>Usuario:</label>
+                <input type="text" name="usuario" required>
+                <br>
+                <label>Clave:</label>
+                <input type="password" name="clave" required minlength="6">
+                <br>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegister">&times;</span>
+            <h3>Crear cuenta</h3>
+            <form class="form-container" action="./inc/registro_usuario.php" method="POST">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40">
+                <br>
+                <label>Apellido:</label>
+                <input type="text" name="apellido" required pattern="[a-zA-Z]{3,40}" maxlength="40">
+                <br>
+                <label>Usuario:</label>
+                <input type="text" id="usuarioInput" name="usuario" required minlength="8" maxlength="20">
+                <br>
+
+                <label>Email:</label>
+                <input type="email" name="email" required>
+                <br>
+                <label>Clave:</label>
+                <input type="password" name="clave" required minlength="8">
+                <br>
+                <label>Repetir clave:</label>
+                <input type="password" name="repetir_clave" required minlength="8">
+                <br>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h5>Sobre Nosotros</h5>
+                <p>Somos un grupo de estudiantes comprometidos con realizar un proyecto demandado sobre un juego de preguntas y respuestas.</p>
+            </div>
+            <div class="footer-section links">
+                <h5>Enlaces Útiles</h5>
+                <ul>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Todos los derechos reservados.
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
