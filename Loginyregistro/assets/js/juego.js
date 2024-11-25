@@ -557,108 +557,111 @@ const preguntas = [
 
 
 
-//tomamos los elementos html
-const txtPuntaje = document.querySelector("#puntos");
-const nombre = document.querySelector("#nombre");
+// Seleccionamos los elementos del DOM que se van a manipular
+const txtPuntaje = document.querySelector("#puntos"); // Elemento donde se mostrará el puntaje actual
+const nombre = document.querySelector("#nombre"); // Elemento donde se mostrará el nombre del jugador
 
-nombre.innerHTML = localStorage.getItem("nombre");
-let numPreguntaActual = 0;
+// Recuperamos y mostramos el nombre del jugador desde el Local Storage
+nombre.innerHTML = localStorage.getItem("nombre"); 
 
-//Recupero el puntaje en caso que ya este jugando
+// Inicializamos el índice de la pregunta actual
+let numPreguntaActual = 0; 
+
+// Recuperamos el puntaje total si ya existe en el Local Storage, o lo inicializamos en 0
 let puntajeTotal = 0;
-if(!localStorage.getItem("puntaje-total")){
+if (!localStorage.getItem("puntaje-total")) { 
+    // Si no hay puntaje almacenado, inicializamos en 0
     puntajeTotal = 0;
-    txtPuntaje.innerHTML = puntajeTotal
-}else{
+    txtPuntaje.innerHTML = puntajeTotal;
+} else { 
+    // Si existe, lo convertimos a número y lo mostramos
     puntajeTotal = parseInt(localStorage.getItem("puntaje-total"));
     txtPuntaje.innerHTML = puntajeTotal;
 }
 
-//cargar las preguntas del tema que eligió
-const categoriaActual = localStorage.getItem("categoria-actual");
-const preguntasCategoria = preguntas.filter(pregunta => pregunta.categoria === categoriaActual);
+// Filtramos las preguntas según la categoría seleccionada almacenada en el Local Storage
+const categoriaActual = localStorage.getItem("categoria-actual"); // Recuperamos la categoría actual
+const preguntasCategoria = preguntas.filter(pregunta => pregunta.categoria === categoriaActual); // Filtramos las preguntas por categoría
 
-function cargarSiguientePregunta(num){
-    //tomo los elementos donde se cargaran los datos de la pregunta
-    const numPregunta = document.querySelector("#num-pregunta");
-    const txtPregunta = document.querySelector("#txt-pregunta");
-    const opcionA = document.querySelector("#a");
-    const opcionB = document.querySelector("#b");
-    const opcionC = document.querySelector("#c");
-    const opcionD = document.querySelector("#d");
+// Función para cargar la siguiente pregunta
+function cargarSiguientePregunta(num) {
+    // Seleccionamos los elementos donde se mostrará la información de la pregunta
+    const numPregunta = document.querySelector("#num-pregunta"); // Elemento para el número de la pregunta
+    const txtPregunta = document.querySelector("#txt-pregunta"); // Elemento para el texto de la pregunta
+    const opcionA = document.querySelector("#a"); // Botón para la opción A
+    const opcionB = document.querySelector("#b"); // Botón para la opción B
+    const opcionC = document.querySelector("#c"); // Botón para la opción C
+    const opcionD = document.querySelector("#d"); // Botón para la opción D
 
-    numPregunta.innerHTML = num + 1;
-    txtPregunta.innerHTML = preguntasCategoria[num].titulo;
-    opcionA.innerHTML = preguntasCategoria[num].opcionA;
-    opcionB.innerHTML = preguntasCategoria[num].opcionB;
-    opcionC.innerHTML = preguntasCategoria[num].opcionC;
-    opcionD.innerHTML = preguntasCategoria[num].opcionD;
+    // Actualizamos los contenidos de la pregunta y las opciones
+    numPregunta.innerHTML = num + 1; // Mostramos el número de la pregunta
+    txtPregunta.innerHTML = preguntasCategoria[num].titulo; // Mostramos el texto de la pregunta
+    opcionA.innerHTML = preguntasCategoria[num].opcionA; // Mostramos la opción A
+    opcionB.innerHTML = preguntasCategoria[num].opcionB; // Mostramos la opción B
+    opcionC.innerHTML = preguntasCategoria[num].opcionC; // Mostramos la opción C
+    opcionD.innerHTML = preguntasCategoria[num].opcionD; // Mostramos la opción D
 
-    
+    // Reiniciamos los botones de respuesta eliminando eventos y estilos previos
+    const botonesRespuesta = document.querySelectorAll(".opcion"); // Seleccionamos todos los botones de opciones
+    botonesRespuesta.forEach(opcion => {
+        opcion.removeEventListener("click", (e) => {}); // Quitamos cualquier evento previo
+        opcion.classList.remove("correcta", "incorrecta", "no-events"); // Eliminamos clases de estado
+    });
 
-    //Agrego un eventlistener a cada boton de respuesta
-    const botonesRespuesta = document.querySelectorAll(".opcion");
-    //Quito los eventListen y las clases
-    botonesRespuesta.forEach(opcion=>{
-        opcion.removeEventListener("click", (e)=>{});
-        opcion.classList.remove("correcta");
-        opcion.classList.remove("incorrecta");
-        opcion.classList.remove("no-events");
-    })
+    // Agregamos un nuevo event listener a los botones de respuesta
+    botonesRespuesta.forEach(opcion => {
+        opcion.addEventListener("click", agregarEventListenerBoton); // Asignamos el evento para manejar la respuesta
+    });
 
-    botonesRespuesta.forEach(opcion=>{
-        opcion.addEventListener("click", agregarEventListenerBoton);
-    })
-
+    // Quitamos efectos visuales previos del puntaje
     txtPuntaje.classList.remove("efecto");
 }
 
-function agregarEventListenerBoton(e){
-    console.log(e.currentTarget.id);
-    console.log(numPreguntaActual);
-    console.log(preguntas[numPreguntaActual].correcta);
-    //Controlo si la respuesta es correcta
-    if(e.currentTarget.id === preguntasCategoria[numPreguntaActual].correcta){
-        e.currentTarget.classList.add("correcta");
-        puntajeTotal = puntajeTotal + 100;
-        txtPuntaje.innerHTML = puntajeTotal;
-        localStorage.setItem("puntaje-total", puntajeTotal);
-        txtPuntaje.classList.add("efecto");
-    }else{
-        e.currentTarget.classList.add("incorrecta");
-        const correcta = document.querySelector("#"+preguntasCategoria[numPreguntaActual].correcta);
-        correcta.classList.add("correcta");
+// Función para manejar el evento de clic en las opciones
+function agregarEventListenerBoton(e) {
+    console.log(e.currentTarget.id); // Mostramos el ID del botón seleccionado
+    console.log(numPreguntaActual); // Mostramos el índice de la pregunta actual
+    console.log(preguntas[numPreguntaActual].correcta); // Mostramos la respuesta correcta de la pregunta actual
+
+    // Verificamos si la respuesta seleccionada es correcta
+    if (e.currentTarget.id === preguntasCategoria[numPreguntaActual].correcta) {
+        e.currentTarget.classList.add("correcta"); // Agregamos la clase "correcta" si la respuesta es correcta
+        puntajeTotal += 100; // Incrementamos el puntaje total en 100
+        txtPuntaje.innerHTML = puntajeTotal; // Actualizamos el puntaje en la interfaz
+        localStorage.setItem("puntaje-total", puntajeTotal); // Guardamos el puntaje actualizado en el Local Storage
+        txtPuntaje.classList.add("efecto"); // Agregamos un efecto visual al puntaje
+    } else {
+        e.currentTarget.classList.add("incorrecta"); // Agregamos la clase "incorrecta" si la respuesta es incorrecta
+        const correcta = document.querySelector("#" + preguntasCategoria[numPreguntaActual].correcta); // Buscamos el botón con la respuesta correcta
+        correcta.classList.add("correcta"); // Marcamos la respuesta correcta
     }
-    //Agrego un eventlistener a cada boton de respuesta
+
+    // Deshabilitamos los botones de respuesta para que no se puedan seleccionar más
     const botonesRespuesta = document.querySelectorAll(".opcion");
-    //Quito los eventListen para que no pueda seguir haciendo clic
-    console.log(botonesRespuesta)
-    botonesRespuesta.forEach(opcion=>{
-        opcion.classList.add("no-events");
-    })
+    botonesRespuesta.forEach(opcion => {
+        opcion.classList.add("no-events"); // Agregamos la clase "no-events" para deshabilitar
+    });
 }
 
+// Cargamos la primera pregunta al cargar el script
 cargarSiguientePregunta(numPreguntaActual);
 
-//tomo el boton siguiente
-const btnSiguiente = document.querySelector("#siguiente")
-btnSiguiente.addEventListener("click",()=>{
-    numPreguntaActual++;
-    if(numPreguntaActual<=4){
-        cargarSiguientePregunta(numPreguntaActual);
-    }
-    else{
+// Seleccionamos el botón de "Siguiente" y manejamos el evento de clic
+const btnSiguiente = document.querySelector("#siguiente");
+btnSiguiente.addEventListener("click", () => {
+    numPreguntaActual++; // Incrementamos el índice de la pregunta actual
+    if (numPreguntaActual <= 4) { // Si todavía hay preguntas por mostrar
+        cargarSiguientePregunta(numPreguntaActual); // Cargamos la siguiente pregunta
+    } else {
+        // Verificamos cuántas categorías ya se han jugado
         const categoriasJugadasLS = JSON.parse(localStorage.getItem("categorias-jugadas"));
-       
-        console.log(categoriasJugadasLS.length);
-        if(parseInt(categoriasJugadasLS.length) < 6){
-            //alert(categoriasJugadasLS.length);
+        console.log(categoriasJugadasLS.length); // Mostramos cuántas categorías ya se han jugado
+        if (parseInt(categoriasJugadasLS.length) < 6) {
+            // Si hay menos de 6 categorías jugadas, redirigimos a la pantalla principal
             location.href = "principal.html";
-        }else{
-            //lo mando a la pantalla final
+        } else {
+            // Si todas las categorías han sido jugadas, redirigimos a la pantalla final
             location.href = "final.html";
         }
-        
     }
-    
-})
+});
