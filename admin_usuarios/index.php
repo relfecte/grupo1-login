@@ -30,6 +30,6 @@ if(isset($_SESSION['usuario'])){
     echo "<br><br>";
     include "./vistas/register.html"; 
     ?>
+<script src="./js.script.js"></script>
 </body>
-    <script src="./js.script.js"></script>
 </html>
