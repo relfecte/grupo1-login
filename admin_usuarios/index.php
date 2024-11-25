@@ -18,13 +18,18 @@ if(isset($_SESSION['usuario'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login y Registro</title>
     
-    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="button-container">
+        <button class="action-btn" id="loginBtn">Login</button>
+        <button class="action-btn" id="registerBtn">Regístrate</button>
+    </div>
     <?php
     include "./vistas/login.html"; 
     echo "<br><br>";
     include "./vistas/register.html"; 
     ?>
 </body>
+    <script src="./js.script.js"></script>
 </html>
