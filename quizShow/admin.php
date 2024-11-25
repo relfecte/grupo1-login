@@ -35,17 +35,16 @@ if(!isset($_SESSION['email'])){
     
 </head>
 <body>
-    <a href="./inc/logout.php">Cerrar sesión</a>
+    <a href="./inc/login/logout.php">Cerrar sesión</a>
     <nav>
         <ul>
             <li><a href="admin.php">Usuarios</a></li>
             <li><a href="admin_quizWUR.php">Quiz</a></li>
         </ul>
     </nav>
-    
-    <h1>Administración de Quiz- WUR</h1>
+    <h1>Administración de Usuarios</h1>
     <?php
-        include "./inc/mostrarQuizWUR_db.php"
+        include "./inc/admin_usuarios/mostrar_db.php"
     ?>
     
 </body>
