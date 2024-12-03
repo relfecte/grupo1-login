@@ -22,17 +22,16 @@ function redirigirConMensaje($mensaje, $url) {
 }
 
 // Función para cerrar sesión
-function logout() {
-    // Iniciar la sesión si no está ya iniciada
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-
+function logout($con) {
+    
     // Destruir la sesión
     session_destroy();
 
+    // Si tienes una conexión abierta, ciérrala
+    cerrar_conexion($con);
+
     // Redirigir al usuario a la página principal
-    header("Location: ../../index.php");
+    header("Location: ./index.php");
     exit();
 }
 ?>

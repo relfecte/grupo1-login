@@ -1,3 +1,3 @@
-
-
-<a href="inc/login/logout.php">Cerrar sesión</a>
+<?php
+    require "./inc/actions/logout.php"
+?>

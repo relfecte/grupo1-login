@@ -65,7 +65,9 @@ function obtener_resultados($resultado) {
 }
 
 
-
+function cerrar_conexion($con){
+	mysqli_close($con);
+}
 
 
 
