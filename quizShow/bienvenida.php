@@ -68,7 +68,7 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
                     <img src="../img/Geografia.jfif" alt="" class="foto-categoria1">
                     <h3>Geografía</h3>
                 </div>
-                <div class="categoria" id="juegos">
+                <div class="categoria" id="historia">
                     <img src="../img/Historia.jfif" alt="" class="foto-categoria1">
                     <h3>Historia</h3>
                 </div>
