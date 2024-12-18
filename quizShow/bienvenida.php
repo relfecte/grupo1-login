@@ -76,6 +76,6 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
         </main>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/principal.js"></script>
 </body>
 </html>
