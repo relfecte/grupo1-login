@@ -65,7 +65,7 @@ function mostrarPreguntas($conexion){
         echo "<td>" . $row['opcion2'] . "</td>";
         echo "<td>" . $row['opcion3'] . "</td>";
         echo "<td>" . $row['opcion4'] . "</td>";
-        echo "<td> <a href='./inc/admin/modificar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "'>Editar</a> |
+        echo "<td> <a href='./vistas/modificar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "'>Editar</a> |
         <a href='./inc/admin/eliminar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta pregunta?\")'>Eliminar</a>";
         echo "</tr>";
     }
@@ -74,13 +74,13 @@ function mostrarPreguntas($conexion){
 
 function mostrarCalificaciones($conexion){
     // Obtener todas las calificaciones
-    $calificaciones = obtenerCalificaciones($conexion);
+    $calificaciones = obtenerCalificacionesConUsuario($conexion);
 
     // Mostrar la tabla de calificaciones
     echo "<h2>Calificaciones</h2>";
     echo "<table border='1'>
     <tr>
-        <th>ID Usuario</th>
+        <th>Usuario</th>
         <th>Tests Totales</th>
         <th>Preguntas Acertadas Totales</th>
         <th>Tests Tipo General</th>
@@ -95,11 +95,12 @@ function mostrarCalificaciones($conexion){
         <th>Preguntas Acertadas Tipo Juegos</th>
         <th>Tests Tipo Películas</th>
         <th>Preguntas Acertadas Tipo Películas</th>
+
     </tr>";
 
     while ($row = obtener_resultados($calificaciones)) {
         echo "<tr>";
-        echo "<td>" . $row['usuario_id'] . "</td>";
+        echo "<td>" . $row['usuario_usuario'] . "</td>";
         echo "<td>" . $row['tests_totales'] . "</td>";
         echo "<td>" . $row['preguntas_acertadas_totales'] . "</td>";
         echo "<td>" . $row['tests_tipo_general'] . "</td>";

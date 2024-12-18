@@ -3,8 +3,7 @@ include_once '../inc/database.php'; // Conexión a la base de datos
 $pregunta_id = $_GET['pregunta_id'];  // Obtener el ID de la pregunta
 
 // Obtener datos de la pregunta
-$result = obtenerPreguntaPorID($con, $pregunta_id);
-$pregunta = obtener_resultados($result);
+$pregunta = obtenerPreguntaPorID($con, $pregunta_id);
 ?>
 
 <form class="form-container" action="../inc/admin/modificar_pregunta.php?pregunta_id=<?php echo $pregunta_id; ?>" method="POST">

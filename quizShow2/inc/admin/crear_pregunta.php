@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Crear la pregunta
-    if (crearPregunta($con, $categoria, $tipo, $opcion_correcta, $opcion2, $opcion3, $opcion4)) {
+    if (crearPregunta($con, $categoria, $pregunta, $opcion_correcta, $opcion2, $opcion3, $opcion4)) {
         redirigirConMensaje("Pregunta creada correctamente.", '../../admin.php?section=preguntas');
         exit;
     } else {

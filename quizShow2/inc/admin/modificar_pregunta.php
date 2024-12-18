@@ -3,9 +3,9 @@ include_once '../database.php'; // Conexión a la base de datos
 include_once '../functions.php'; // Funciones auxiliares
 
 // Verificar si se pasa el ID de la pregunta en la URL
-if (isset($_GET['pregunta_id'])) {
+if (isset($_GET['pregunta_id']) && is_numeric($_GET['pregunta_id'])) {
     $pregunta_id = $_GET['pregunta_id'];
-    // Obtener los datos de la pregunta para precargar en el formulario
+    // Obtener los datos de la pregunta
     $pregunta = obtenerPreguntaPorID($con, $pregunta_id);
 } else {
     echo "No se ha proporcionado el ID de la pregunta.";
@@ -30,27 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
-<h2>Editar Pregunta</h2>
-
-<form action="modificar_pregunta.php?pregunta_id=<?php echo $pregunta['pregunta_id']; ?>" method="POST">
-    <label for="categoria">Categoría:</label>
-    <input type="text" name="categoria" id="categoria" value="<?php echo htmlspecialchars($pregunta['categoria']); ?>" required>
-    
-    <label for="pregunta">Pregunta:</label>
-    <textarea name="pregunta" id="pregunta" required><?php echo htmlspecialchars($pregunta['pregunta']); ?></textarea>
-
-    <label for="opcion_correcta">Opción Correcta:</label>
-    <input type="text" name="opcion_correcta" id="opcion_correcta" value="<?php echo htmlspecialchars($pregunta['opcion_correcta']); ?>" required>
-    
-    <label for="opcion2">Opción 2:</label>
-    <input type="text" name="opcion2" id="opcion2" value="<?php echo htmlspecialchars($pregunta['opcion2']); ?>" required>
-    
-    <label for="opcion3">Opción 3:</label>
-    <input type="text" name="opcion3" id="opcion3" value="<?php echo htmlspecialchars($pregunta['opcion3']); ?>" required>
-    
-    <label for="opcion4">Opción 4:</label>
-    <input type="text" name="opcion4" id="opcion4" value="<?php echo htmlspecialchars($pregunta['opcion4']); ?>" required>
-
-    <button type="submit">Modificar Pregunta</button>
-</form>

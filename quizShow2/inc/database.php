@@ -48,7 +48,7 @@ function registrarUsuario($con, $nombre, $apellido, $usuario, $clave, $email) {
         $usuario_id = mysqli_insert_id($con);
 
         // Llamar a la función para insertar las calificaciones iniciales
-        if (crearCalificacionInicialCompletada($con, $usuario_id)) {
+        if (crearCalificacionInicialCompleta($con, $usuario_id)) {
             return true;  // Usuario registrado y calificaciones iniciales insertadas correctamente
         } else {
             return false; // Error al insertar las calificaciones
@@ -102,6 +102,17 @@ function obtenerCalificaciones($con) {
     $query = "SELECT * FROM calificaciones";
     $resultado = mysqli_query($con, $query);
     return $resultado;
+}
+
+function obtenerCalificacionesConUsuario($con){
+    // Obtener todas las calificaciones con el nombre de usuario
+    $query = "
+        SELECT calificaciones.*, usuarios.usuario_usuario 
+        FROM calificaciones 
+        INNER JOIN usuarios ON calificaciones.usuario_id = usuarios.usuario_id
+    ";
+    $calificaciones = mysqli_query($con, $query);
+    return $calificaciones;
 }
 
 // Función para eliminar un usuario
@@ -171,7 +182,7 @@ function crearUsuario($con, $nombre, $apellido, $usuario, $clave, $email, $admin
         $usuario_id = mysqli_insert_id($con);
 
         // Insertar las calificaciones iniciales
-        if (crearCalificacionInicialCompletada($con, $usuario_id)) {
+        if (crearCalificacionInicialCompleta($con, $usuario_id)) {
             return true;
         } else {
             return false;
@@ -248,9 +259,15 @@ function crearPregunta($con, $categoria, $pregunta, $opcion_correcta, $opcion2, 
 
 
 function obtenerPreguntaPorID($conexion, $pregunta_id) {
+    $pregunta_id = mysqli_real_escape_string($conexion, $pregunta_id);
     $query = "SELECT * FROM preguntas WHERE pregunta_id = '$pregunta_id'";
     $resultado = mysqli_query($conexion, $query);
-    return mysqli_fetch_assoc($resultado); // Devuelve una fila de la pregunta
+
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        return mysqli_fetch_assoc($resultado); // Devuelve la fila de la pregunta
+    } else {
+        return null; // Si no se encuentra la pregunta, retorna null
+    }
 }
 
 function actualizarPregunta($conexion, $pregunta_id, $categoria, $pregunta, $opcion_correcta, $opcion2, $opcion3, $opcion4) {
