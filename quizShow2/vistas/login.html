@@ -1,16 +1,9 @@
- <!-- Modal de Login -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeLogin">&times;</span>
-            <h3>Iniciar sesión</h3>
-            <form class="form-container" action="./inc/login_usuario.php" method="POST">
-                <label>Usuario:</label>
-                <input type="text" name="usuario" required>
-                <br>
-                <label>Clave:</label>
-                <input type="password" name="clave" required minlength="6">
-                <br>
-                <button type="submit">Iniciar sesión</button>
-            </form>
-        </div>
-    </div>
+<form class="form-container" action="./inc/login/login.php" method="POST">
+    <label>Email:</label>
+    <input type="text" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
+    <br>
+    <label>Clave:</label>
+    <input type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <br>
+    <button type="submit">Iniciar sesión</button>
+</form>

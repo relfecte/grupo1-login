@@ -1,3 +1,12 @@
+<?php
+require_once './inc/functions.php';
+require_once './inc/database.php';
+session_start();
+
+// Redirigir al usuario autenticado según su rol
+redirigirSegunRol();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

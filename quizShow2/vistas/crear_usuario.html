@@ -1,4 +1,4 @@
-<form class="form-container" action="./inc/login/register.php" method="POST">
+<form class="form-container" action="../inc/admin/crear_usuario.php" method="POST">
     <label>Nombre:</label>
     <input type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
     <br>
@@ -13,7 +13,11 @@
     <br>
     <label>Clave:</label>
     <input type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <label>Cuenta administrador:</label>
+    <select name="admin" required>
+        <option value="1">ADMIN</option>
+        <option value="0">USUARIO</option>
+    </select>
     <br>
-    <button type="submit">Registrarse</button>
+    <button type="submit">Crear usuario</button>
 </form>
-

@@ -12,7 +12,12 @@ function validarPatrones($patron, $valor, $mensaje) {
 }
 
 
-function redirigirConMensaje($mensaje, $url) {
+function redirigirConMensaje($mensaje, $url = null) {
+    // Si no se pasa una URL, usamos la URL actual
+    if ($url === null) {
+        $url = $_SERVER['REQUEST_URI'];
+    }
+
     echo "
         <script>
             alert('$mensaje');
@@ -34,4 +39,49 @@ function logout($con) {
     header("Location: ./index.php");
     exit();
 }
+
+
+// Función para redirigir según el rol del usuario
+function redirigirSegunRol() {
+    if (isset($_SESSION['usuario_admin'])) {
+        if ($_SESSION['usuario_admin'] == 1) {
+            header("Location: admin.php");
+        } else {
+            header("Location: bienvenida.php");
+        }
+        exit();
+    }
+}
+
+// Verificar acceso solo para administradores
+function verificarAccesoAdmin() {
+    if (!isset($_SESSION['usuario_admin']) || $_SESSION['usuario_admin'] != 1) {
+        header("Location: index.php");
+        exit();
+    }
+}
+
+// Verificar acceso solo para usuarios normales
+function verificarAccesoUsuario() {
+    if (!isset($_SESSION['usuario_admin']) || $_SESSION['usuario_admin'] != 0) {
+        header("Location: index.php");
+        exit();
+    }
+}
+
+
+// Función para validar datos antes de insertarlos o actualizarlos
+function validarDatosUsuario($nombre, $apellido, $usuario, $email) {
+    // Aquí puedes agregar validación, como verificar que los campos no estén vacíos, que el email sea válido, etc.
+    if (empty($nombre) || empty($apellido) || empty($usuario) || empty($email)) {
+        return false;
+    }
+    // Validación de email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    return true;
+}
+
+
 ?>

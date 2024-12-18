@@ -1,6 +1,7 @@
+
 <?php
-require "./inc/functions.php";
-require "./inc/database.php";
+require_once "./inc/functions.php";
+require_once "./inc/database.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     logout($con);
