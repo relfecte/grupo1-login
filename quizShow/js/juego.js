@@ -2428,11 +2428,11 @@ let numPreguntaActual = 0;
 
 // Recuperamos el puntaje total si ya existe en el Local Storage, o lo inicializamos en 0
 let puntajeTotal = 0;
-if (!localStorage.getItem("puntaje-total")) { 
+if (!localStorage.getItem("puntaje-partida")) { 
     puntajeTotal = 0;
     txtPuntaje.innerHTML = puntajeTotal;
 } else { 
-    puntajeTotal = parseInt(localStorage.getItem("puntaje-total"));
+    puntajeTotal = parseInt(localStorage.getItem("puntaje-partida"));
     txtPuntaje.innerHTML = puntajeTotal;
 }
 
@@ -2488,7 +2488,7 @@ function agregarEventListenerBoton(e) {
         e.currentTarget.classList.add("correcta"); 
         puntajeTotal += 100; 
         txtPuntaje.innerHTML = puntajeTotal; 
-        localStorage.setItem("puntaje-total", puntajeTotal); 
+        localStorage.setItem("puntaje-partida", puntajeTotal); // Guardar puntaje de esta partida
         txtPuntaje.classList.add("efecto"); 
     } else {
         e.currentTarget.classList.add("incorrecta"); 
@@ -2504,7 +2504,7 @@ function agregarEventListenerBoton(e) {
 
 // Función que se llama al finalizar el quiz
 function finalizarQuiz() {
-    localStorage.setItem("puntaje-total", puntajeTotal); 
+    localStorage.setItem("puntaje-partida", puntajeTotal); 
     location.href = "final.html"; 
 }
 
@@ -2521,3 +2521,5 @@ btnSiguiente.addEventListener("click", () => {
         finalizarQuiz(); 
     }
 });
+
+
