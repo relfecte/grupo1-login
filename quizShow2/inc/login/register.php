@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     validarPatrones("/^.{6,}$/", $clave, "La clave debe tener al menos 6 caracteres.");
 
     // Verificar duplicados$con, $tabla, $campo, $valor, $mensaje
-    if (verificarDuplicado($conexion, 'usuario', 'usuario_email', $email)) {
+    if (verificarDuplicado($conexion, 'usuarios', 'usuario_email', $email)) {
         redirigirConMensaje("Este correo ya está registrado.", '../../index.php');
     }
-    if (verificarDuplicado($conexion, 'usuario', 'usuario_usuario', $usuario)) {
+    if (verificarDuplicado($conexion, 'usuarios', 'usuario_usuario', $usuario)) {
         redirigirConMensaje("Este usuario ya está registrado.", '../../index.php');
     }
 

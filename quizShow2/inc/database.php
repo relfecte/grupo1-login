@@ -37,7 +37,7 @@ function registrarUsuario($con, $nombre, $apellido, $usuario, $clave, $email) {
             '$usuario',
             '$clave_encriptada',
             '$email',
-            '0'  // O '1' si es un usuario administrador
+            '0'
         )";
 
     // Ejecutar la consulta de inserción

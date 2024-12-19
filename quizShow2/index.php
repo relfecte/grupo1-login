@@ -23,9 +23,9 @@ redirigirSegunRol();
         <p class="description">Selecciona una opción para comenzar:</p>
     </header>
     <?php
-    require "./vistas/login.html"; 
+    require "./vistas/login/login.html"; 
     echo "<br><br>";
-    require "./vistas/register.html"; 
+    require "./vistas/login/register.html"; 
     ?>
  <script src="./js/principal.js"></script>
 </body>
