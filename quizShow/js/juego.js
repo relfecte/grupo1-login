@@ -2416,7 +2416,6 @@ const preguntas = [
 
 
 
-// Seleccionamos los elementos del DOM que se van a manipular
 const txtPuntaje = document.querySelector("#puntos"); // Elemento donde se mostrará el puntaje actual
 const nombre = document.querySelector("#nombre"); // Elemento donde se mostrará el nombre del jugador
 
@@ -2426,14 +2425,14 @@ nombre.innerHTML = localStorage.getItem("nombre");
 // Inicializamos el índice de la pregunta actual
 let numPreguntaActual = 0; 
 
-// Recuperamos el puntaje total si ya existe en el Local Storage, o lo inicializamos en 0
-let puntajeTotal = 0;
+// Recuperamos el puntaje de la partida actual
+let puntajePartida = 0;
 if (!localStorage.getItem("puntaje-partida")) { 
-    puntajeTotal = 0;
-    txtPuntaje.innerHTML = puntajeTotal;
+    puntajePartida = 0;
+    txtPuntaje.innerHTML = puntajePartida;
 } else { 
-    puntajeTotal = parseInt(localStorage.getItem("puntaje-partida"));
-    txtPuntaje.innerHTML = puntajeTotal;
+    puntajePartida = parseInt(localStorage.getItem("puntaje-partida"));
+    txtPuntaje.innerHTML = puntajePartida;
 }
 
 // Filtramos las preguntas según la categoría seleccionada almacenada en el Local Storage
@@ -2486,9 +2485,9 @@ function cargarSiguientePregunta(num) {
 function agregarEventListenerBoton(e) {
     if (e.currentTarget.id === preguntasCategoria[numPreguntaActual].correcta) {
         e.currentTarget.classList.add("correcta"); 
-        puntajeTotal += 100; 
-        txtPuntaje.innerHTML = puntajeTotal; 
-        localStorage.setItem("puntaje-partida", puntajeTotal); // Guardar puntaje de esta partida
+        puntajePartida += 100; 
+        txtPuntaje.innerHTML = puntajePartida; 
+        localStorage.setItem("puntaje-partida", puntajePartida); // Guardar puntaje de esta partida
         txtPuntaje.classList.add("efecto"); 
     } else {
         e.currentTarget.classList.add("incorrecta"); 
@@ -2504,8 +2503,26 @@ function agregarEventListenerBoton(e) {
 
 // Función que se llama al finalizar el quiz
 function finalizarQuiz() {
-    localStorage.setItem("puntaje-partida", puntajeTotal); 
-    location.href = "final.html"; 
+    // Actualizar el puntaje total de forma única al finalizar
+    const puntajeTotalPrevio = parseInt(localStorage.getItem("puntaje-total")) || 0;
+    const puntajeTotalActualizado = puntajeTotalPrevio + puntajePartida;
+    localStorage.setItem("puntaje-total", puntajeTotalActualizado);
+
+    // Ahora actualizamos el puntaje específico de la categoría
+    const categoriaActual = localStorage.getItem("categoria-actual");
+
+    // Guardamos las respuestas correctas y totales
+    const correctas = puntajePartida / 100; // Cada pregunta correcta otorga 100 puntos
+    const totalPreguntas = 10; // Número total de preguntas en el quiz
+
+    const correctasPrevias = parseInt(localStorage.getItem(`correctas-${categoriaActual}`)) || 0;
+    const totalesPrevias = parseInt(localStorage.getItem(`totales-${categoriaActual}`)) || 0;
+
+    localStorage.setItem(`correctas-${categoriaActual}`, correctasPrevias + correctas);
+    localStorage.setItem(`totales-${categoriaActual}`, totalesPrevias + totalPreguntas);
+
+    // Redirigir a la página de resultados
+    location.href = "final.html";
 }
 
 // Cargamos la primera pregunta al cargar el script
@@ -2521,5 +2538,3 @@ btnSiguiente.addEventListener("click", () => {
         finalizarQuiz(); 
     }
 });
-
-
