@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #333; /* Color de texto oscuro */
+    padding: 20px; /* Espaciado alrededor del contenido */
+}
+
+h1 {
+    text-align: center; /* Centrar el título */
+    color: #007bff; /* Color azul para el título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+a {
+    color: #007bff; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+table {
+    width: 100%; /* Tabla ocupa el 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes */
+    margin: 20px 0; /* Margen arriba y abajo */
+    background-color: white; /* Fondo blanco para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+}
+
+th, td {
+    padding: 10px; /* Espaciado interno de celdas */
+    text-align: left; /* Alinear texto a la izquierda */
+    border: 1px solid #dee2e6; /* Borde claro */
+}
+
+th {
+    background-color: #007bff; /* Color de fondo de los encabezados */
+    color: white; /* Color del texto en los encabezados */
+}
+
+th:last-child {
+    background-color: white; /* Color de fondo blanco para el último encabezado */
+    color: #333; /*  texto oscuro para que sea legible */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+}
+
+tr:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el ratón sobre una fila */
+}
+
+button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+}

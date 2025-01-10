@@ -1,12 +1,14 @@
 
 <?php
+ob_start();
+session_start();
 require_once './inc/functions.php';
 require_once './inc/database.php';
 require_once './inc/adminFunctions.php';
 
 // Conectar a la base de datos
 $conexion = $con;
-session_start();
+
 
 // Verificar acceso para administradores
 verificarAccesoAdmin();
@@ -72,6 +74,7 @@ verificarAccesoAdmin();
         ?>
     </div>
     <?php
+    
     require "./inc/actions/logout.php";
     ?>
 </body>

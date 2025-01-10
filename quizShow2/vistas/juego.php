@@ -1,9 +1,15 @@
+<?php
+require_once '../inc/functions.php';
+require_once '../inc/database.php';
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css.estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <title>Game Quiz</title>
 </head>
 <body>
@@ -16,7 +22,7 @@
             </div>
             <h1>QUIZ</h1>
             <div class="jugador">
-                <span class="nombre" id="nombre">Oscar</span>
+                <span class="nombre" id="nombre"><?php echo htmlspecialchars($_SESSION['usuario_usuario']); ?></span>
                 <img src="img/user.png" alt="">
             </div>
         </header>
@@ -25,7 +31,7 @@
             <div class="contador-pregunta">
                 <span id="num-pregunta" class="num-pregunta">01</span>
                 /
-                <span> 5</span>
+                <span> 10</span>
             </div>
             <p id="txt-pregunta" class="pregunta">
                 ¿Texto de la pregunta 1?
@@ -43,6 +49,6 @@
         </main>
     </div>
 
-    <script src="./js/juego.js"></script>
+    <script src="../js/juego.js"></script>
 </body>
 </html>

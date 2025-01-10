@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <title>Game Quiz</title>
 </head>
 <body>
@@ -26,17 +26,17 @@
 
             <div class="medalla">
                 <img src="./img/medalla.png" alt="">
-                <h3 id="nombre-jugador" class="nombre">Oscar</h3>
+                <h3 id="nombre-jugador" class="nombre"><?php echo htmlspecialchars($_SESSION['usuario_usuario']); ?></h3>
             </div>
 
-            <span id="puntaje-final" class="puntaje-final">10,000 Puntos</span>
+            <span id="puntaje-final" class="puntaje-final"></span>
 
-            <h2>ACERTADAS: <span id="total-acertadas" class="final-score">20</span></h2>
-            <h2>INCORRECTAS: <span id="total-no-acertadas" class="final-score">5</span></h2>
+            <h2>ACERTADAS: <span id="total-acertadas" class="final-score"></span></h2>
+            <h2>INCORRECTAS: <span id="total-no-acertadas" class="final-score"></span></h2>
             <button class="btn" id="btn-comenzar">Comenzar de Nuevo</button>
         </main>
     </div>
 
-    <script src="./js/final.js"></script>
+    <script src="../js/final.js"></script>
 </body>
 </html>

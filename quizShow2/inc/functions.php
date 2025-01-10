@@ -28,7 +28,9 @@ function redirigirConMensaje($mensaje, $url = null) {
 
 // Función para cerrar sesión
 function logout($con) {
-    
+    //limpier bufer 
+    ob_clean();
+
     // Destruir la sesión
     session_destroy();
 
