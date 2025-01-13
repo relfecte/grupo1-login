@@ -71,6 +71,14 @@ function verificarAccesoUsuario() {
     }
 }
 
+// Verificar acceso solo para usuarios normales
+function verificarAccesoUsuario2() {
+    if (!isset($_SESSION['usuario_admin']) || $_SESSION['usuario_admin'] != 0) {
+        header("Location: ../index.php");
+        exit();
+    }
+}
+
 
 // Función para validar datos antes de insertarlos o actualizarlos
 function validarDatosUsuario($nombre, $apellido, $usuario, $email) {

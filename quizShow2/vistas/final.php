@@ -6,6 +6,8 @@ session_start();
 // Conectar a la base de datos
 $conexion = $con;
 
+verificarAccesoUsuario2();
+
 $usuarioId = $_SESSION['usuario_id']; // Suponiendo que el ID del usuario está guardado en la sesión
 
 // Obtener las calificaciones del usuario
