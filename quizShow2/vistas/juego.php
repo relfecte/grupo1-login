@@ -1,9 +1,35 @@
 <?php
 require_once '../inc/functions.php';
 require_once '../inc/database.php';
+require_once '../inc/quizFunctions.php';
 session_start();
+$conexion = $con;
+// Verificamos si se ha recibido la categoría desde el frontend
+if (isset($_POST['categoria'])) {
+    $categoria = $_POST['categoria'];
+
+    // Llamamos a la función para obtener preguntas aleatorias de la categoría
+    $preguntas = obtenerPreguntasPorCategoriaRandom($con, $categoria);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['categoria'])) {
+        header('Content-Type: application/json');
+        
+        $categoria = $_POST['categoria'];
+        $preguntas = obtenerPreguntasPorCategoriaRandom($conexion, $categoria);
+    
+        if ($preguntas && mysqli_num_rows($preguntas) > 0) {
+            $preguntasArray = mysqli_fetch_all($preguntas, MYSQLI_ASSOC);
+            echo json_encode($preguntasArray);
+        } else {
+            echo json_encode(['error' => 'No se encontraron preguntas para la categoría especificada.']);
+        }
+        exit; // Detenemos la ejecución para evitar que el HTML sea enviado
+    }
+}
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,16 +40,17 @@ session_start();
 </head>
 <body>
     <div class="container">
-        <img src="img/auris.png" alt="" class="img">
+        <img src="../img/auris.png" alt="" class="img">
         <header>
             <div class="puntaje">
-                <img src="img/puntos.png" alt="">
+                <img src="../img/puntos.png" alt="">
                 <span class="puntos" id="puntos">0</span>
             </div>
+            
             <h1>QUIZ</h1>
             <div class="jugador">
                 <span class="nombre" id="nombre"><?php echo htmlspecialchars($_SESSION['usuario_usuario']); ?></span>
-                <img src="img/user.png" alt="">
+                <img src="../img/user.png" alt="">
             </div>
         </header>
 

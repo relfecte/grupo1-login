@@ -151,6 +151,33 @@ function obtenerPreguntasPorCategoria($con, $categoria) {
     return $resultado;
 }
 
+// Función para obtener preguntas filtradas por categoría de manera aleatoria
+function obtenerPreguntasPorCategoriaRandom($con, $categoria) {
+    // Usamos una sentencia preparada para evitar inyecciones SQL
+    $query = "SELECT * FROM preguntas WHERE categoria = ? ORDER BY RAND() LIMIT 10";
+    $stmt = mysqli_prepare($con, $query);
+
+    // Verificamos si la sentencia se preparó correctamente
+    if ($stmt === false) {
+        die('Error al preparar la consulta: ' . mysqli_error($con));
+    }
+
+    // Vinculamos el parámetro de categoría
+    mysqli_stmt_bind_param($stmt, 's', $categoria);
+
+    // Ejecutamos la consulta
+    mysqli_stmt_execute($stmt);
+
+    // Obtenemos el resultado
+    $resultado = mysqli_stmt_get_result($stmt);
+
+    // Cerramos la sentencia
+    mysqli_stmt_close($stmt);
+
+    // Retornamos el resultado
+    return $resultado;
+}
+
 
 function crearUsuario($con, $nombre, $apellido, $usuario, $clave, $email, $admin) {
     // Encriptar clave
@@ -403,6 +430,28 @@ function crearCalificacionNueva($con, $usuario_id) {
     // Si la inserción fue exitosa, devolver true
     return $ejecutar_calificacion ? true : false;
 }
+
+
+function obtenerCalificacionTotal($con, $usuarioId) {
+    // Consulta SQL para obtener el total de preguntas acertadas y el total de tests de un usuario
+    $query = "
+        SELECT preguntas_acertadas_totales , tests_totales
+        FROM calificaciones
+        WHERE usuario_id = $usuarioId
+    ";
+    
+    $result = mysqli_query($con, $query);
+
+    // Verificar si la consulta fue exitosa y si se obtuvieron resultados
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result); // Retorna los resultados como un array asociativo
+    } else {
+        // Si no se encuentran registros, retorna un array con valores por defecto
+        return ['preguntas_acertadas_totales' => 0, 'tests_totales' => 0];
+    }
+}
+
+
 
 function cerrar_conexion($con){
 	mysqli_close($con);

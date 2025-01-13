@@ -1,17 +1,3 @@
-// Tomamos los elementos HTML que vamos a manipular
-const txtPuntaje = document.querySelector("#puntos"); // Elemento donde se mostrará el puntaje
-
-
-// Recuperamos el puntaje total si ya existe en Local Storage, o lo inicializamos en 0
-let puntajeTotal = 0; // Variable para almacenar el puntaje acumulado
-if (!localStorage.getItem("puntaje-total")) { // Verifica si no existe el puntaje en el Local Storage
-    puntajeTotal = 0; // Si no existe, inicializa el puntaje en 0
-    txtPuntaje.innerHTML = puntajeTotal; // Muestra el puntaje inicial en el HTML
-} else { 
-    puntajeTotal = parseInt(localStorage.getItem("puntaje-total")); // Si existe, lo convierte a número y lo asigna a la variable
-    txtPuntaje.innerHTML = puntajeTotal; // Muestra el puntaje recuperado en el HTML
-}
-
 // Necesitamos una estructura para guardar las categorías ya jugadas
 let categoriasJugadas; // Arreglo que almacenará las categorías ya jugadas
 
