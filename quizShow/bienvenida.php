@@ -74,6 +74,9 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
                 </div>
                 </div>
         </main>
+        <div class="boton-cerrar-sesion">
+            <a href="index.html" class="btn cerrar-sesion">Cerrar Sesión</a>
+        </div>
     </div>
 
     <script src="../js/script.js"></script>
