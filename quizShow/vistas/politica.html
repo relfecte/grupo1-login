@@ -18,11 +18,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             color: #fff;
         }
         .container {
-            width: 500px;
+            max-width: 500px;
+            width: 100%;
             background: linear-gradient(#6051e0, #ad79b9);
             padding: 20px;
             border-radius: 15px;
@@ -70,6 +71,50 @@
         .btn:hover {
             background-color: #2a2929;
         }
+
+        /* Media queries para hacerlo responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .header {
+                font-size: 16px;
+                padding: 8px;
+            }
+            .section h2 {
+                font-size: 18px;
+            }
+            .section p {
+                font-size: 13px;
+            }
+            .btn {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .header {
+                font-size: 14px;
+                padding: 6px;
+            }
+            .section h2 {
+                font-size: 16px;
+            }
+            .section p {
+                font-size: 12px;
+            }
+            .btn {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -101,9 +146,9 @@
             <p>Tienes derecho a acceder, rectificar o eliminar tu información personal. Para ejercer estos derechos, contáctanos a través de nuestro formulario de soporte.</p>
         </div>
 
-        
-
         <a href="index.html"><button class="btn">Atrás</button></a>
     </div>
 </body>
 </html>
+
+
