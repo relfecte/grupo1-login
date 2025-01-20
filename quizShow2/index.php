@@ -31,6 +31,27 @@ redirigirSegunRol();
     echo "<br><br>";
     include "./vistas/login/register.html"; 
     ?>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h5>Sobre Nosotros</h5>
+                <p>Somos un grupo de estudiantes comprometidos con realizar un proyecto demandado sobre un juego de preguntas y respuestas.</p>
+            </div>
+            <div class="footer-section links">
+                <h5>Enlaces Útiles</h5>
+                <ul>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Todos los derechos reservados.
+        </div>
+    </footer>
 <script src="./js/script.js"></script>
 </body>
 </html>
