@@ -43,7 +43,7 @@ function mostrarPreguntas($conexion){
  
 
     // Mostrar la tabla de preguntas
-    echo "<h2>Preguntas</h2>";
+    echo "<h2>Preguntas ". ($categoria ? " - Categoría: $categoria" : "") ."</h2>";
     echo "<table border='1'>
     <tr>
         <th>ID</th>
