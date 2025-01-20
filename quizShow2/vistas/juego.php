@@ -3,8 +3,10 @@ require_once '../inc/functions.php';
 require_once '../inc/database.php';
 require_once '../inc/quizFunctions.php';
 session_start();
+
 $conexion = $con;
 verificarAccesoUsuario2();
+
 // Verificamos si se ha recibido la categoría desde el frontend
 if (isset($_POST['categoria'])) {
     $categoria = $_POST['categoria'];

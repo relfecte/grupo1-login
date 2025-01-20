@@ -1,5 +1,3 @@
-
-
 const txtPuntaje = document.querySelector("#puntos");
 // Inicializamos el índice de la pregunta actual
 let numPreguntaActual = 0; 
@@ -18,7 +16,6 @@ if (!localStorage.getItem("puntaje-partida")) {
 const categoriaSeleccionada = localStorage.getItem("categoria-actual");
 
 console.log("Categoría seleccionada desde LocalStorage:", categoriaSeleccionada);
-
 
 if (!categoriaSeleccionada) {
     console.error("La categoría no está almacenada en LocalStorage.");
@@ -66,29 +63,15 @@ function shuffleArray(array) {
     }
     return array;
 }
+
 let preguntasCategoria = [];  // Variable global de preguntas
-let indicePregunta = 0;  // Índice de la pregunta actual
 
-// Función para cargar la primera pregunta
-/*function cargarPregunta(preguntas) {
-    console.log(preguntas[0]);  // Muestra la primera pregunta como ejemplo
-    document.getElementById("txt-pregunta").textContent = preguntas[0].pregunta;
-    // Cargar las opciones de respuesta
-    document.getElementById("a").textContent = preguntas[0].opcion2;
-    document.getElementById("b").textContent = preguntas[0].opcion3;
-    document.getElementById("c").textContent = preguntas[0].opcion4;
-    document.getElementById("d").textContent = preguntas[0].opcion_correcta;
-
-    // Asegúrate de que los botones están habilitados para recibir clics
-    habilitarBotonesRespuestas();
-}*/
 function cargarPregunta(preguntas) {
     preguntasCategoria = preguntas; // Actualizamos la variable global
-    indicePregunta = 0; // Reiniciamos el índice al comienzo
     cargarSiguientePregunta(); // Cargamos la primera pregunta
 }
 
-// Función para habilitar los botones de respuestas (asegúrate de que los botones no estén deshabilitados)
+// Función para habilitar los botones de respuestas
 function habilitarBotonesRespuestas() {
     const botonesRespuesta = document.querySelectorAll(".opcion");
     botonesRespuesta.forEach(opcion => {
@@ -98,45 +81,11 @@ function habilitarBotonesRespuestas() {
 }
 
 // Función para cargar la siguiente pregunta según el índice
-/*function cargarSiguientePregunta() {
-    const numPregunta = document.querySelector("#num-pregunta");
-    const txtPregunta = document.querySelector("#txt-pregunta");
-    const opcionA = document.querySelector("#a");
-    const opcionB = document.querySelector("#b");
-    const opcionC = document.querySelector("#c");
-    const opcionD = document.querySelector("#d");
-
-    // Asegúrate de que los elementos existan
-    if (!numPregunta || !txtPregunta || !opcionA || !opcionB || !opcionC || !opcionD) {
-        console.error("Uno o más elementos del DOM no fueron encontrados.");
-        return;
-    }
-
-    // Verifica que el índice esté dentro del rango de preguntas
-    if (indicePregunta >= 0 && indicePregunta < preguntasCategoria.length) {
-        // Actualizamos los contenidos de la pregunta y las opciones
-        numPregunta.innerHTML = indicePregunta + 1;  // Número de la pregunta
-        txtPregunta.innerHTML = preguntasCategoria[indicePregunta].pregunta;  // Título de la pregunta
-        opcionA.innerHTML = preguntasCategoria[indicePregunta].opcion_correcta; // Opción correcta
-        opcionB.innerHTML = preguntasCategoria[indicePregunta].opcion2;
-        opcionC.innerHTML = preguntasCategoria[indicePregunta].opcion3;
-        opcionD.innerHTML = preguntasCategoria[indicePregunta].opcion4;
-
-        // Reiniciar los eventos para las opciones de respuesta (por si están bloqueados o deshabilitados)
-        habilitarBotonesRespuestas();
-    } else {
-        console.error("Índice de pregunta fuera de rango");
-    }
-
-    // Eliminar clase de efecto si existe
-    const txtPuntaje = document.querySelector("#txt-puntaje");
-    if (txtPuntaje) {
-        txtPuntaje.classList.remove("efecto");
-    }
-}*/
 function cargarSiguientePregunta() {
-    if (indicePregunta >= 0 && indicePregunta < preguntasCategoria.length) {
-        const pregunta = preguntasCategoria[indicePregunta];
+    if (numPreguntaActual >= 0 && numPreguntaActual < preguntasCategoria.length) {
+        const pregunta = preguntasCategoria[numPreguntaActual];
+        const numPregunta = document.querySelector("#num-pregunta");
+        numPregunta.textContent = numPreguntaActual+1;
         document.querySelector("#txt-pregunta").textContent = pregunta.pregunta;
         document.querySelector("#a").textContent = pregunta.opcion_correcta;
         document.querySelector("#b").textContent = pregunta.opcion2;
@@ -145,55 +94,31 @@ function cargarSiguientePregunta() {
 
         habilitarBotonesRespuestas();
     } else {
-        console.error("Índice de pregunta fuera de rango:", indicePregunta);
+        console.error("Índice de pregunta fuera de rango:", numPreguntaActual);
     }
 }
 
-
-// Función para manejar la acción de "Siguiente" (puedes llamarla desde el evento de click)
+// Función para manejar la acción de "Siguiente"
 function siguientePregunta() {
-    if (indicePregunta < preguntasCategoria.length - 1) {
-        indicePregunta++;  // Aumentar el índice para la siguiente pregunta
-        cargarSiguientePregunta();  // Cargar la siguiente pregunta
+    if (numPreguntaActual < preguntasCategoria.length - 1) {
+        numPreguntaActual++;  // Aumentamos el índice para la siguiente pregunta
+        cargarSiguientePregunta();  // Cargamos la siguiente pregunta
     } else {
-        console.log("Has llegado al final del quiz.");
+        finalizarQuiz();  // Si llegamos al final, finalizamos el quiz
     }
 }
-
 
 // Función para manejar las respuestas del usuario
-/*function agregarEventListenerBoton(event) {
-    const respuestaSeleccionada = event.target.textContent;
-    console.log("Respuesta seleccionada:", respuestaSeleccionada);
-
-    // Puedes comparar la respuesta seleccionada con la opción correcta aquí
-    // y aplicar lógica para verificar si la respuesta es correcta
-    if (respuestaSeleccionada === preguntasCategoria[indicePregunta].opcion_correcta) { //EERRROR!!!
-        console.log("Respuesta correcta");
-        // Lógica para manejar respuestas correctas
-    } else {
-        console.log("Respuesta incorrecta");
-        // Lógica para manejar respuestas incorrectas
-    }
-
-    // Deshabilitar opciones tras una selección
-    const botonesRespuesta = document.querySelectorAll(".opcion");
-    botonesRespuesta.forEach(opcion => {
-        opcion.classList.add("no-events");  // Deshabilitar interacciones después de seleccionar una respuesta
-    });
-
-    // Habilitar el botón de "Siguiente" después de responder
-    document.getElementById("btn-siguiente").disabled = false;  // Asegúrate de que el botón "Siguiente" esté habilitado
-}*/
 function agregarEventListenerBoton(event) {
     const respuestaSeleccionada = event.target.textContent;
     console.log("Respuesta seleccionada:", respuestaSeleccionada);
 
-    if (preguntasCategoria[indicePregunta]) { // Verificamos que la pregunta actual existe
-        const preguntaActual = preguntasCategoria[indicePregunta];
+    if (preguntasCategoria[numPreguntaActual]) { // Verificamos que la pregunta actual existe
+        const preguntaActual = preguntasCategoria[numPreguntaActual];
         if (respuestaSeleccionada === preguntaActual.opcion_correcta) {
             console.log("Respuesta correcta");
-            // Incrementar puntaje
+            puntajePartida++;
+            txtPuntaje.innerHTML = puntajePartida; // Actualizar puntaje
         } else {
             console.log("Respuesta incorrecta");
         }
@@ -214,44 +139,19 @@ function agregarEventListenerBoton(event) {
     }
 }
 
-    // Asignar el evento de clic al botón de "Siguiente"
-    //document.getElementById("btn-siguiente").addEventListener("click", siguientePregunta); //ERROR!!!!
-    // Inicializa la primera pregunta al cargar la página
-    //cargarPregunta(preguntasCategoria);
-
-    // Función que se llama al finalizar el quiz
-    function finalizarQuiz() {
-    // Actualizar el puntaje total de forma única al finalizar
-    const puntajeTotalPrevio = parseInt(localStorage.getItem("puntaje-total")) || 0;
-    const puntajeTotalActualizado = puntajeTotalPrevio + puntajePartida;
-    localStorage.setItem("puntaje-total", puntajeTotalActualizado);
-
-    // Ahora actualizamos el puntaje específico de la categoría
-    const categoriaActual = localStorage.getItem("categoria-actual");
+// Función que se llama al finalizar el quiz
+function finalizarQuiz() {
+    // Actualizar el puntaje
+    localStorage.setItem("puntaje-partida", puntajePartida);
 
     // Guardamos las respuestas correctas y totales
-    const correctas = puntajePartida / 100; // Cada pregunta correcta otorga 100 puntos
+    const correctas = puntajePartida; // Cada pregunta correcta otorga 1 puntos
     const totalPreguntas = 10; // Número total de preguntas en el quiz
-
-    const correctasPrevias = parseInt(localStorage.getItem(`correctas-${categoriaActual}`)) || 0;
-    const totalesPrevias = parseInt(localStorage.getItem(`totales-${categoriaActual}`)) || 0;
-
-    localStorage.setItem(`correctas-${categoriaActual}`, correctasPrevias + correctas);
-    localStorage.setItem(`totales-${categoriaActual}`, totalesPrevias + totalPreguntas);
 
     // Redirigir a la página de resultados
     location.href = "final.php";
 }
 
-
 // Seleccionamos el botón de "Siguiente" y manejamos el evento de clic
 const btnSiguiente = document.querySelector("#siguiente");
-btnSiguiente.addEventListener("click", () => {
-    numPreguntaActual++; 
-    if (numPreguntaActual <= 9) { // Ahora el límite es 9 (10 preguntas)
-        cargarSiguientePregunta(numPreguntaActual); 
-    } else {
-        finalizarQuiz(); 
-    }
-});
-
+btnSiguiente.addEventListener("click", siguientePregunta);

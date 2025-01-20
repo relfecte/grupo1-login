@@ -9,7 +9,6 @@ const btnComenar = document.querySelector("#btn-comenzar"); // Botón para comen
 const puntajePartida = parseInt(localStorage.getItem("puntaje-partida")) || 0; 
 
 // Mostrar el puntaje final de la partida
-txtPuntaje.innerHTML = puntajePartida; 
 puntajeFinal.innerHTML = `${puntajePartida} Puntos`; 
 
 // Calcular aciertos y errores
@@ -25,4 +24,9 @@ totalNoAcertadas.innerHTML = incorrectas;
 btnComenar.addEventListener("click", () => {
     localStorage.removeItem("puntaje-partida"); // Limpiar el puntaje de la partida anterior
     location.href = "../bienvenida.php"; // Redirige a la página principal
+});
+
+// Eliminar el puntaje al abandonar la página (por ejemplo, al ir a otro sitio o recargar la página)
+window.addEventListener("beforeunload", () => {
+    localStorage.removeItem("puntaje-partida"); // Limpiar el puntaje
 });

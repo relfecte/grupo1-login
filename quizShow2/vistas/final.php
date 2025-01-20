@@ -33,7 +33,7 @@ $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales
                 <img src="../img/puntos.png" alt="">
                 <span class="puntos" id="puntos"></span>
             </div>
-            <script>
+            <script defer>
             // Asignamos el valor del porcentaje calculado desde PHP
             const porcentajeTotal = <?php echo $porcentaje; ?>;
 

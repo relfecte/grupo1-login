@@ -4,6 +4,7 @@ require_once './inc/functions.php';
 require_once './inc/database.php';
 require_once './inc/quizFunctions.php';
 session_start();
+
 // Conectar a la base de datos
 $conexion = $con;
 
