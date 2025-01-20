@@ -17,6 +17,11 @@ redirigirSegunRol();
     <link rel="stylesheet" href="./css/style_index.css">
 </head>
 <body>
+    <header>
+        <h1 class="main-title">Bienvenido a QuizShow</h1>
+        <h2 class="subtitle">Bienvenido</h2>
+        <p class="description">Selecciona una opción para comenzar:</p>
+    </header>
     <div class="button-container">
         <button class="action-btn" id="loginBtn">Login</button>
         <button class="action-btn" id="registerBtn">Regístrate</button>
