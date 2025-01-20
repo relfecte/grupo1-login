@@ -21,10 +21,11 @@ if(isset($_SESSION['usuario'])){
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="button-container">
-        <button class="action-btn" id="loginBtn">Login</button>
-        <button class="action-btn" id="registerBtn">Regístrate</button>
-    </div>
+    <header>
+        <h1 class="main-title">Bienvenido a QuizShow</h1>
+        <h2 class="subtitle">Bienvenido</h2>
+        <p class="description">Selecciona una opción para comenzar:</p>
+    </header>
     <?php
     include "./vistas/login.html"; 
     echo "<br><br>";
