@@ -277,3 +277,33 @@ nav ul li a {
     font-size: 16px;
     display: block; /* Asegura que todo el área del <li> sea clicable */
 }
+
+.categoria a {
+    display: flex; /* Hace que el contenido del enlace sea un contenedor flexible */
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #fff; /* Color del texto */
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.categoria a:hover {
+    background-color: #66499e; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.categoria a img {
+    width: 40px; /* Ajusta el tamaño de las imágenes */
+    height: 40px;
+    margin-right: 10px; /* Añade espacio entre la imagen y el texto */
+    border-radius: 50%; /* Hace que las imágenes sean redondas */
+    background-color: #3f40ae; /* Fondo de la imagen */
+    padding: 5px; /* Relleno interno para el círculo */
+    border: 2px solid #ffe43a; /* Borde alrededor de la imagen */
+}
+
+.categoria a span {
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold;
+}
+
