@@ -23,19 +23,19 @@ verificarAccesoAdmin();
 <body>
     <div class="container">
         <header>
-            <h1>Panel de Administración</h1>
+            <h1>Panel de Administración - <?php echo $_SESSION['usuario_usuario']?></h1>
         </header>
         <!-- Barra de Navegación -->
         <nav>
             <ul class="categorias">
                 <li class="categoria">
+                    <img src="./img/user.png" alt="Calificaciones" class="foto-categoria">
                     <a href="admin.php?section=usuarios" class="foto-categoria1">Usuarios
-                    <img src="img/use.png" alt="Calificaciones" class="foto-categoria">
                     </a>
                 </li>
                 <li class="categoria">
                     <a href="admin.php?section=calificaciones" class="foto-categoria1">Calificaciones
-                    <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+                    <img src="./img/puntos.png" alt="Calificaciones" class="foto-categoria">
                     </a>
                 </li>
                 <li class="categoria">
