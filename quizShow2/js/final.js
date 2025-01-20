@@ -30,3 +30,5 @@ btnComenar.addEventListener("click", () => {
 window.addEventListener("beforeunload", () => {
     localStorage.removeItem("puntaje-partida"); // Limpiar el puntaje
 });
+
+//ELIMINAR CATEGORIA DEL STORAGE AL SALIR O CLICKAR

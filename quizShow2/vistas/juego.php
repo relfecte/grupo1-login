@@ -28,7 +28,7 @@ if (isset($_POST['categoria'])) {
         }
         exit; // Detenemos la ejecución para evitar que el HTML sea enviado
     }
-}
+}//PONER ELSE PARA QUE SI NO HAY CATEGORIA NO SE ENTRE
 
 
 ?>

@@ -21,8 +21,10 @@ function agregarEventListenerOpciones() {
             // Agregamos la categoría seleccionada al arreglo de categorías jugadas
             categoriasJugadas.push(e.currentTarget.id); 
             // Guardamos el arreglo actualizado en el Local Storage
-            localStorage.setItem("categorias-jugadas", JSON.stringify(categoriasJugadas)); 
+
+           localStorage.setItem("categorias-jugadas", JSON.stringify(categoriasJugadas)); 
             console.log(categoriasJugadas); // Mostramos el estado actualizado del arreglo en la consola
+
             // Redirigimos al usuario a la página del juego
             location.href = "./vistas/juego.php"; 
         });
@@ -31,3 +33,5 @@ function agregarEventListenerOpciones() {
 
 // Llamamos a la función para agregar los eventos a las categorías
 agregarEventListenerOpciones();
+
+//NO TENEMOS QUE GUARDAR LAS CATEGORIA YA JUGADAS SOLO LA ACTUAL
