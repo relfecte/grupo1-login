@@ -8,6 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 }
 ?>
 
-<form method="post">
-    <button type="submit" name="logout">Cerrar sesión</button>
+<form class="boton-cerrar-sesion" method="post">
+    <button class="btn cerrar-sesion" type="submit" name="logout">Cerrar sesión</button>
 </form>
