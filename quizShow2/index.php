@@ -41,9 +41,9 @@ redirigirSegunRol();
             <div class="footer-section links">
                 <h5>Enlaces Útiles</h5>
                 <ul>
-                    <li><a href="politica.html">Política de Privacidad</a></li>
-                    <li><a href="terminos.html">Términos y Condiciones</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="./vistas/politica.html">Política de Privacidad</a></li>
+                    <li><a href="./vistas/terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="./vistas/contacto.html">Contacto</a></li>
                     
                 </ul>
             </div>
