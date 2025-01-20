@@ -1,10 +1,9 @@
 <?php
-ob_start();
-session_start();
 require_once './inc/functions.php';
 require_once './inc/database.php';
 require_once './inc/adminFunctions.php';
-
+ob_start();
+session_start();
 // Conectar a la base de datos
 $conexion = $con;
 
@@ -23,7 +22,7 @@ verificarAccesoAdmin();
 <body>
     <div class="container">
         <header>
-            <h1>Panel de Administración</h1>
+            <h1>Panel de Administración - <?php echo $_SESSION['usuario_usuario']?></h1>
         </header>
         <!-- Barra de Navegación -->
         <nav>
@@ -85,7 +84,7 @@ verificarAccesoAdmin();
             ?>
         </div>
         <footer class="menu">
-            <button class="btn" onclick="location.href='./inc/actions/logout.php'">Cerrar Sesión</button>
+            <?php require "./inc/actions/logout.php"; ?>
         </footer>
     </div>
 </body>
