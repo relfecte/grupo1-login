@@ -28,16 +28,18 @@ verificarAccesoAdmin();
         <!-- Barra de Navegación -->
         <nav>
             <ul class="categorias">
-                <li class="categoria">
-                    <a href="admin.php?section=usuarios" class="foto-categoria1">Usuarios
-                    <img src="img/user.png" alt="Calificaciones" class="foto-categoria">
-                    </a>
-                </li>
-                <li class="categoria">
-                    <a href="admin.php?section=calificaciones" class="foto-categoria1">Calificaciones
-                    <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
-                    </a>
-                </li>
+               <li class="categoria">
+              <a href="admin.php?section=usuarios" class="foto-categoria1">
+              <img src="img/user.png" alt="Usuarios" class="foto-categoria">
+               <span>Usuarios</span>
+               </a>
+               </li>
+              <li class="categoria">
+              <a href="admin.php?section=calificaciones" class="foto-categoria1">
+              <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+               <span>Calificaciones</span>
+                 </a>
+                 </li>
                 <li class="categoria">
                     <a href="admin.php?section=preguntas" class="foto-categoria1">Preguntas</a>
                     <ul>
