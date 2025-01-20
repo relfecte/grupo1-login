@@ -29,10 +29,14 @@ verificarAccesoAdmin();
         <nav>
             <ul class="categorias">
                 <li class="categoria">
-                    <a href="admin.php?section=usuarios" class="foto-categoria1">Usuarios</a>
+                    <a href="admin.php?section=usuarios" class="foto-categoria1">Usuarios
+                    <img src="img/use.png" alt="Calificaciones" class="foto-categoria">
+                    </a>
                 </li>
                 <li class="categoria">
-                    <a href="admin.php?section=calificaciones" class="foto-categoria1">Calificaciones</a>
+                    <a href="admin.php?section=calificaciones" class="foto-categoria1">Calificaciones
+                    <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+                    </a>
                 </li>
                 <li class="categoria">
                     <a href="admin.php?section=preguntas" class="foto-categoria1">Preguntas</a>
