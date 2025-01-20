@@ -31,7 +31,9 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
             <h1>QUIZ</h1>
             <div class="jugador">
                 <span class="nombre" id="nombre"></span>
+
                 <img src="../img/user.png" alt="">
+
                 </div>
         </header>
 
@@ -41,7 +43,9 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
             <p>Elige una categoría..</p>
             <div class="categorias">
                 <div class="categoria" id="general">
+
                     <img src="../img/general.png" alt="" class="foto-categoria">
+                    
                     <h3>General</h3>
                 </div>
                 <div class="categoria" id="musica">
@@ -80,5 +84,7 @@ if(!isset($_SESSION['email']) && $_SESSION['admin']== 0){
     </div>
 
     <script src="../js/script.js"></script>
+
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
-
-$con= mysqli_connect("localhost","root","","quizshow") or die("Error al conectar con la base de datos");
+require_once("db_info.php"); //include=?¿
+$con= mysqli_connect($servidor, $usuario, $pass, $db) or die("Error al conectar con la base de datos");
 
 //REGISTRO USUARIO
 function verificarDuplicado($con, $tabla, $campo, $valor) {

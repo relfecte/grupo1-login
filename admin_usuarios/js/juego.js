@@ -626,7 +626,7 @@ function agregarEventListenerBoton(e) {
     // Verificamos si la respuesta seleccionada es correcta
     if (e.currentTarget.id === preguntasCategoria[numPreguntaActual].correcta) {
         e.currentTarget.classList.add("correcta"); // Agregamos la clase "correcta" si la respuesta es correcta
-        puntajeTotal += 100; // Incrementamos el puntaje total en 100
+        puntajeTotal += 1; // Incrementamos el puntaje total en 1
         txtPuntaje.innerHTML = puntajeTotal; // Actualizamos el puntaje en la interfaz
         localStorage.setItem("puntaje-total", puntajeTotal); // Guardamos el puntaje actualizado en el Local Storage
         txtPuntaje.classList.add("efecto"); // Agregamos un efecto visual al puntaje
