@@ -30,7 +30,7 @@ verificarAccesoAdmin();
             <ul class="categorias">
                 <li class="categoria">
                     <a href="admin.php?section=usuarios" class="foto-categoria1">Usuarios
-                    <img src="img/use.png" alt="Calificaciones" class="foto-categoria">
+                    <img src="img/user.png" alt="Calificaciones" class="foto-categoria">
                     </a>
                 </li>
                 <li class="categoria">
