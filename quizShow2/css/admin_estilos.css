@@ -1,72 +1,93 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Color de fondo claro */
-    color: #333; /* Color de texto oscuro */
-    padding: 20px; /* Espaciado alrededor del contenido */
-}
-
-h1 {
-    text-align: center; /* Centrar el título */
-    color: #007bff; /* Color azul para el título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-}
-
-a {
-    color: #007bff; /* Color de los enlaces */
-    text-decoration: none; /* Sin subrayado */
-}
-
-a:hover {
-    text-decoration: underline; /* Subrayar al pasar el mouse */
-}
-
-table {
-    width: 100%; /* Tabla ocupa el 100% del contenedor */
-    border-collapse: collapse; /* Colapsar bordes */
-    margin: 20px 0; /* Margen arriba y abajo */
-    background-color: white; /* Fondo blanco para la tabla */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
-}
-
-th, td {
-    padding: 10px; /* Espaciado interno de celdas */
-    text-align: left; /* Alinear texto a la izquierda */
-    border: 1px solid #dee2e6; /* Borde claro */
-}
-
-th {
-    background-color: #007bff; /* Color de fondo de los encabezados */
-    color: white; /* Color del texto en los encabezados */
-}
-
-th:last-child {
-    background-color: white; /* Color de fondo blanco para el último encabezado */
-    color: #333; /*  texto oscuro para que sea legible */
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2; /* Color de fondo para filas pares */
-}
-
-tr:hover {
-    background-color: #e9ecef; /* Color de fondo al pasar el ratón sobre una fila */
-}
-
-button {
-    background-color: #007bff; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 15px; /* Espaciado interno del botón */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-}
-
-button:hover {
-    background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
-}
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed';
+        }
+        body {
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(#584bb4, #6a416b, #685082);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .contenido {
+            width: 500px;
+            background: linear-gradient(#6051e0, #ad79b9);
+            height: 90%; /* Reduce la altura para dar espacio */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem; /* Espacio desde el borde superior */
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem; /* Ajuste para espacio superior */
+            margin-bottom: 1rem; /* Espacio entre el título y el menú */
+            text-align: center; /* Centra el título */
+            color: white;
+        }
+        nav {
+            margin-bottom: 2rem; /* Espacio entre el menú y el botón */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px; /* Espacio entre las opciones del menú */
+            justify-content: center; /* Centra las opciones horizontalmente */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #66499e;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #2a2929;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #60439d;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            margin: 5px 0;
+        }
+        nav ul li ul li a {
+            display: block;
+            padding: 5px;
+        }
+        button {
+            background-color: #66499e;
+            color: #fff;
+            border: 0;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 30px; /* Distancia entre el menú y el botón */
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #2a2929;
+        }
