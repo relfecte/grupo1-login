@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        body {
+            padding: 20px;
+            background: linear-gradient(#584bb4, #6a416b, #685082);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            width: 500px;
+            background: linear-gradient(#6051e0, #ad79b9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .header {
+            text-align: center;
+            background-color: #6b5ae4;
+            padding: 10px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 5px #2a2929;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .contact-info a {
+            color: #ffe43a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        /* Estilo del botón adaptado */
+        .back-button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 12px 25px;
+            background-color: #6b5ae4; /* Color similar al fondo */
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px; /* Borde redondeado */
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #5a4fcf; /* Cambio de color en hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Contacto</div>
+        <div class="contact-info">
+            <p>Teléfono: +34 612 168 421</p>
+            <p>Correo Electrónico: contacto@quiz.com</p>
+        </div>
+        <a href="../index.php"><button class="back-button" onclick="window.history.back();">Atrás</button></a>
+    </div>
+</body>
+</html>
+
+

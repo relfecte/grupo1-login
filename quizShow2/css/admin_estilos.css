@@ -1,0 +1,93 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed';
+        }
+        body {
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(#584bb4, #6a416b, #685082);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .contenido {
+            width: 500px;
+            background: linear-gradient(#6051e0, #ad79b9);
+            height: 90%; /* Reduce la altura para dar espacio */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem; /* Espacio desde el borde superior */
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem; /* Ajuste para espacio superior */
+            margin-bottom: 1rem; /* Espacio entre el título y el menú */
+            text-align: center; /* Centra el título */
+            color: white;
+        }
+        nav {
+            margin-bottom: 2rem; /* Espacio entre el menú y el botón */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px; /* Espacio entre las opciones del menú */
+            justify-content: center; /* Centra las opciones horizontalmente */
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #66499e;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #2a2929;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #60439d;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            margin: 5px 0;
+        }
+        nav ul li ul li a {
+            display: block;
+            padding: 5px;
+        }
+        button {
+            background-color: #66499e;
+            color: #fff;
+            border: 0;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-top: 30px; /* Distancia entre el menú y el botón */
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #2a2929;
+        }

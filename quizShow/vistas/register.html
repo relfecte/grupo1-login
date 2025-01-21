@@ -1,0 +1,18 @@
+<form class="form-container" action="../inc/login/registro_usuario.php" method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
+    <br>
+    <label>Apellido:</label>
+    <input type="text" name="apellido" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El apellido debe contener entre 3 y 40 letras.">
+    <br>
+    <label>Usuario:</label>
+    <input type="text" name="usuario" required pattern="[a-zA-Z0-9]{3,20}" maxlength="20" title="El usuario debe contener entre 3 y 20 caracteres alfanuméricos.">
+    <br>
+    <label>Email:</label>
+    <input type="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
+    <br>
+    <label>Clave:</label>
+    <input type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <br>
+    <button type="submit">Registrarse</button>
+</form>

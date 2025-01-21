@@ -1,0 +1,9 @@
+<form class="form-container" action="../inc/login/login__usuario.php" method="POST">
+    <label>Email:</label>
+    <input type="text" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
+    <br>
+    <label>Clave:</label>
+    <input type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <br>
+    <button type="submit">Iniciar sesión</button>
+</form>
