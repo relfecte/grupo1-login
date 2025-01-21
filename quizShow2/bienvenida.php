@@ -47,7 +47,7 @@ require "./inc/actions/logout.php";
             const txtPuntaje = document.querySelector("#puntos");
 
             // Mostrar el porcentaje en el elemento HTML
-            txtPuntaje.innerHTML = porcentajeTotal.toFixed(2) + '%'; // Mostrar con dos decimales
+            txtPuntaje.innerHTML = porcentajeTotal + '%'; // Mostrar con dos decimales
             </script>
 
 

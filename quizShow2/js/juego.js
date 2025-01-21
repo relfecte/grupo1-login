@@ -1,9 +1,18 @@
+// Deshabilitar el cacheo de la página
+window.onload = () => {
+    // Agregamos un encabezado para evitar la caché en navegadores
+    if ('performance' in window && performance.getEntriesByType('navigation')[0].type === 'back_forward') {
+        location.reload(); // Recargar la página completamente si es navegación hacia atrás
+    }
+};
+
 const txtPuntaje = document.querySelector("#puntos");
 // Inicializamos el índice de la pregunta actual
 let numPreguntaActual = 0; 
 
 // Recuperamos el puntaje de la partida actual
 let puntajePartida = 0;
+localStorage.setItem("puntaje-partida", 0);
 if (!localStorage.getItem("puntaje-partida")) { 
     puntajePartida = 0;
     txtPuntaje.innerHTML = puntajePartida;
@@ -15,9 +24,11 @@ if (!localStorage.getItem("puntaje-partida")) {
 // Obtener la categoría seleccionada del LocalStorage
 const categoriaSeleccionada = localStorage.getItem("categoria-actual");
 
+
 console.log("Categoría seleccionada desde LocalStorage:", categoriaSeleccionada);
 
 if (!categoriaSeleccionada) {
+    location.href = "../bienvenida.php";
     console.error("La categoría no está almacenada en LocalStorage.");
 }
 
@@ -51,7 +62,7 @@ if (categoriaSeleccionada) {
         console.error("Error al hacer la solicitud:", error);
     });
 } else {
-    console.error('No se encontró ninguna categoría en el LocalStorage.');
+    console.error('333No se encontró ninguna categoría en el LocalStorage.');
 }
 
 
@@ -80,22 +91,52 @@ function habilitarBotonesRespuestas() {
     });
 }
 
-// Función para cargar la siguiente pregunta según el índice
+
+// Función para cargar la siguiente pregunta
 function cargarSiguientePregunta() {
     if (numPreguntaActual >= 0 && numPreguntaActual < preguntasCategoria.length) {
         const pregunta = preguntasCategoria[numPreguntaActual];
         const numPregunta = document.querySelector("#num-pregunta");
-        numPregunta.textContent = numPreguntaActual+1;
+        numPregunta.textContent = numPreguntaActual + 1;
         document.querySelector("#txt-pregunta").textContent = pregunta.pregunta;
-        document.querySelector("#a").textContent = pregunta.opcion_correcta;
-        document.querySelector("#b").textContent = pregunta.opcion2;
-        document.querySelector("#c").textContent = pregunta.opcion3;
-        document.querySelector("#d").textContent = pregunta.opcion4;
 
-        habilitarBotonesRespuestas();
+        // Crear un array con todas las opciones de respuesta
+        const opciones = [
+            pregunta.opcion_correcta,
+            pregunta.opcion2,
+            pregunta.opcion3,
+            pregunta.opcion4
+        ];
+
+        // Mezclar las opciones de respuesta
+        const opcionesMezcladas = shuffleArray(opciones);  // Utilizamos la función shuffleArray que ya tienes
+
+        // Asignar las opciones mezcladas a los elementos del HTML
+        document.querySelector("#a").textContent = opcionesMezcladas[0];
+        document.querySelector("#b").textContent = opcionesMezcladas[1];
+        document.querySelector("#c").textContent = opcionesMezcladas[2];
+        document.querySelector("#d").textContent = opcionesMezcladas[3];
+
+        habilitarBotonesRespuestas();  // Habilitar botones para poder seleccionar las opciones
+
+        // Desactivar el botón "Siguiente" cuando se carga una nueva pregunta
+        const btnSiguiente = document.getElementById("siguiente");
+        if (btnSiguiente) {
+            btnSiguiente.disabled = true;  // Lo deshabilitamos hasta que el usuario responda
+        }
+
     } else {
         console.error("Índice de pregunta fuera de rango:", numPreguntaActual);
     }
+}
+
+// Función de mezcla de array (Fisher-Yates Shuffle)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Índice aleatorio entre 0 y i
+        [array[i], array[j]] = [array[j], array[i]]; // Intercambia los elementos
+    }
+    return array;
 }
 
 // Función para manejar la acción de "Siguiente"
@@ -119,8 +160,14 @@ function agregarEventListenerBoton(event) {
             console.log("Respuesta correcta");
             puntajePartida++;
             txtPuntaje.innerHTML = puntajePartida; // Actualizar puntaje
+
+            // Agregar clase para respuesta correcta y animación
+            event.target.classList.add("correcta");
         } else {
             console.log("Respuesta incorrecta");
+
+            // Agregar clase para respuesta incorrecta y animación
+            event.target.classList.add("incorrecta");
         }
     } else {
         console.error("La pregunta actual no está disponible.");
@@ -129,20 +176,27 @@ function agregarEventListenerBoton(event) {
     // Deshabilitar opciones después de seleccionar una respuesta
     const botonesRespuesta = document.querySelectorAll(".opcion");
     botonesRespuesta.forEach(opcion => {
-        opcion.classList.add("no-events");
+        opcion.classList.add("no-events"); // Deshabilitar las demás opciones
     });
 
-    // Habilitar botón "Siguiente"
-    const btnSiguiente = document.getElementById("btn-siguiente");
+    // Desactivar el botón "Siguiente" cuando se carga una nueva pregunta
+    const btnSiguiente = document.getElementById("siguiente");
     if (btnSiguiente) {
-        btnSiguiente.disabled = false;
+        btnSiguiente.disabled = false;  // Lo deshabilitamos hasta que el usuario responda
     }
+
+    // Aplicar la animación
+    event.target.classList.add("efecto"); // Agregar la animación de zoom
 }
+
 
 // Función que se llama al finalizar el quiz
 function finalizarQuiz() {
     // Actualizar el puntaje
     localStorage.setItem("puntaje-partida", puntajePartida);
+
+    // Establecer un indicador para verificar el acceso a final.php
+    localStorage.setItem("acceso-final", "permitido");
 
     // Guardamos las respuestas correctas y totales
     const correctas = puntajePartida; // Cada pregunta correcta otorga 1 puntos
@@ -152,6 +206,23 @@ function finalizarQuiz() {
     location.href = "final.php";
 }
 
-// Seleccionamos el botón de "Siguiente" y manejamos el evento de clic
-const btnSiguiente = document.querySelector("#siguiente");
-btnSiguiente.addEventListener("click", siguientePregunta);
+
+
+// Función para manejar la acción al presionar el botón "Siguiente"
+document.getElementById("siguiente").addEventListener("click", function() {
+    // Eliminar las clases de todas las opciones
+    const botonesRespuesta = document.querySelectorAll(".opcion");
+    botonesRespuesta.forEach(opcion => {
+        opcion.classList.remove("correcta", "incorrecta", "efecto", "no-events"); // Quitar las clases de respuesta y animación
+    });
+
+    // Habilitar todas las opciones nuevamente (si es necesario)
+    botonesRespuesta.forEach(opcion => {
+        opcion.classList.remove("no-events"); // Asegurarse de que las opciones se puedan seleccionar nuevamente
+    });
+
+
+    // Avanzar a la siguiente pregunta (esto dependerá de cómo manejes las preguntas)
+    siguientePregunta();
+});
+

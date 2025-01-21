@@ -3,18 +3,79 @@ require_once '../inc/functions.php';
 require_once '../inc/database.php';
 require_once '../inc/quizFunctions.php';
 session_start();
+// Deshabilitar caché
+/*header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");*/
+
 // Conectar a la base de datos
 $conexion = $con;
 
+// Verificar acceso
 verificarAccesoUsuario2();
 
-$usuarioId = $_SESSION['usuario_id']; // Suponiendo que el ID del usuario está guardado en la sesión
+// Obtener el ID de usuario y categoría de la sesión
+/*$usuarioId = $_SESSION['usuario_id']; 
+$categoria = $_SESSION['categoria'];*/
 
-// Obtener las calificaciones del usuario
-$calificacionTotal = obtenerCalificacionTotal($con, $usuarioId);
+// Verificar si los parámetros existen
+/*if (isset($_POST['puntajePartida']) && isset($usuarioId) && isset($categoria)) {
+    $puntajePartida = $_POST['puntajePartida'];
 
-// Usar la función calcularPorcentaje directamente
-$porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales'], $calificacionTotal['tests_totales']);
+    // Ejecutar la función para actualizar las calificaciones
+    $resultado = actualizarCalificaciones($conexion, $usuarioId, $puntajePartida, $categoria);
+    // Obtener las nuevas calificaciones después de la actualización
+        $calificacionTotal = obtenerCalificacionTotal($conexion, $usuarioId);
+        $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales'], $calificacionTotal['tests_totales']);
+    
+    if ($resultado) {
+        // Responder con el nuevo porcentaje
+        echo json_encode([
+            "status" => "success",
+            "message" => "Datos actualizados correctamente.",
+        ]);
+    } else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Error al actualizar los datos."
+        ]);
+    }
+}*/
+
+// Procesar petición AJAX antes de cargar el HTML
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuarioId = $_SESSION['usuario_id']; 
+    $categoria = $_SESSION['categoria'];
+
+    if (isset($_POST['puntajePartida']) && isset($usuarioId) && isset($categoria)) {
+        $puntajePartida = $_POST['puntajePartida'];
+
+        // Ejecutar la función para actualizar las calificaciones
+        $resultado = actualizarCalificaciones($conexion, $usuarioId, $puntajePartida, $categoria);
+
+        if ($resultado) {
+            $calificacionTotal = obtenerCalificacionTotal($conexion, $usuarioId);
+            $porcentaje = calcularPorcentaje(
+                $calificacionTotal['preguntas_acertadas_totales'], 
+                $calificacionTotal['tests_totales']
+            );
+
+            echo json_encode([
+                "status" => "success",
+                "message" => "Datos actualizados correctamente.",
+                "nuevoPorcentaje" => $porcentaje
+            ]);
+        } else {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Error al actualizar los datos."
+            ]);
+        }
+        exit; // Detenemos la ejecución del script PHP para evitar HTML adicional
+    }
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -32,17 +93,8 @@ $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales
             <div class="puntaje">
                 <img src="../img/puntos.png" alt="">
                 <span class="puntos" id="puntos"></span>
+                
             </div>
-            <script defer>
-            // Asignamos el valor del porcentaje calculado desde PHP
-            const porcentajeTotal = <?php echo $porcentaje; ?>;
-
-            // Obtenemos el elemento donde se mostrará el puntaje
-            const txtPuntaje = document.querySelector("#puntos");
-
-            // Mostrar el porcentaje en el elemento HTML
-            txtPuntaje.innerHTML = porcentajeTotal.toFixed(2) + '%'; // Mostrar con dos decimales
-            </script>
             <h1>QUIZ</h1>
             <div class="jugador">
                 <span class="nombre" id="nombre"><?php echo htmlspecialchars($_SESSION['usuario_usuario']); ?></span>

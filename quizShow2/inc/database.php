@@ -451,6 +451,30 @@ function obtenerCalificacionTotal($con, $usuarioId) {
     }
 }
 
+function actualizarCalificaciones($con, $usuarioId, $puntajePartida, $categoria) {
+
+    // Determinar las columnas basadas en la categoría seleccionada
+    $columnaTestsTotales = 'tests_totales';
+    $columnaPreguntasAcertadasTotales = 'preguntas_acertadas_totales';
+    $columnaTestsTipoCategoria = 'tests_tipo_' . $categoria;
+    $columnaPreguntasAcertadasTipoCategoria = 'preguntas_acertadas_tipo_' . $categoria;
+
+    // Crear la consulta SQL
+    $sql = "UPDATE calificaciones
+            SET 
+                $columnaTestsTotales = $columnaTestsTotales + 1,
+                $columnaPreguntasAcertadasTotales = $columnaPreguntasAcertadasTotales + $puntajePartida,
+                $columnaTestsTipoCategoria = $columnaTestsTipoCategoria + 1,
+                $columnaPreguntasAcertadasTipoCategoria = $columnaPreguntasAcertadasTipoCategoria + $puntajePartida
+            WHERE usuario_id = $usuarioId";
+
+    // Ejecutar la consulta directamente usando mysqli_query
+    if (mysqli_query($con, $sql)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 function cerrar_conexion($con){

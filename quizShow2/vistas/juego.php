@@ -4,31 +4,38 @@ require_once '../inc/database.php';
 require_once '../inc/quizFunctions.php';
 session_start();
 
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 $conexion = $con;
 verificarAccesoUsuario2();
 
-// Verificamos si se ha recibido la categoría desde el frontend
-if (isset($_POST['categoria'])) {
-    $categoria = $_POST['categoria'];
+// Verificamos si se ha recibido la categoría desde el frontend y si el método es POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['categoria'])) {
+    $_SESSION['categoria'] = $_POST['categoria'];
+
+    // Guardamos la categoría
+    $categoria = $_SESSION['categoria'];
 
     // Llamamos a la función para obtener preguntas aleatorias de la categoría
-    $preguntas = obtenerPreguntasPorCategoriaRandom($con, $categoria);
+    $preguntas = obtenerPreguntasPorCategoriaRandom($conexion, $categoria);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['categoria'])) {
-        header('Content-Type: application/json');
-        
-        $categoria = $_POST['categoria'];
-        $preguntas = obtenerPreguntasPorCategoriaRandom($conexion, $categoria);
-    
-        if ($preguntas && mysqli_num_rows($preguntas) > 0) {
-            $preguntasArray = mysqli_fetch_all($preguntas, MYSQLI_ASSOC);
-            echo json_encode($preguntasArray);
-        } else {
-            echo json_encode(['error' => 'No se encontraron preguntas para la categoría especificada.']);
-        }
-        exit; // Detenemos la ejecución para evitar que el HTML sea enviado
+    // Configuramos la respuesta como JSON
+    header('Content-Type: application/json');
+
+    // Verificamos si hay preguntas
+    if ($preguntas && mysqli_num_rows($preguntas) > 0) {
+        $preguntasArray = mysqli_fetch_all($preguntas, MYSQLI_ASSOC);
+        echo json_encode($preguntasArray);
+    } else {
+        echo json_encode(['error' => 'No se encontraron preguntas para la categoría especificada.']);
     }
-}//PONER ELSE PARA QUE SI NO HAY CATEGORIA NO SE ENTRE
+    exit; // Detenemos la ejecución para evitar que el HTML sea enviado
+}
+
+
+
 
 
 ?>
