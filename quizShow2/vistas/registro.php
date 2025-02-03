@@ -2,9 +2,11 @@
 require_once '../inc/functions.php';
 require_once '../inc/database.php';
 require_once '../inc/quizFunctions.php';
+require_once '../inc/regisRankFunctions.php';
 session_start();
 $conexion = $con;
 verificarAccesoUsuario2();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +25,26 @@ verificarAccesoUsuario2();
             <h2>Puntaje General</h2>
             <span id="puntaje-general" class="percentage">0</span> <!-- Aquí se actualizará el puntaje general -->
         </div>
+        <script>
+            // Asignamos el valor del porcentaje calculado desde PHP
+            const porcentajeTotal = <?php echo $_SESSION['procentaje']; ?>;
+
+            // Obtenemos el elemento donde se mostrará el puntaje
+            const txtPuntaje = document.querySelector("#puntaje-general");
+
+            // Mostrar el porcentaje en el elemento HTML
+            txtPuntaje.innerHTML = porcentajeTotal + '%';
+        </script>
         <div class="scores">
             <h3>Puntajes por Categoría</h3>
             <div id="categorias-container">
-                <!-- Las categorías se ordenarán y mostrarán dinámicamente aquí -->
+                <?php generarCategorias($conexion, $_SESSION['usuario_id']); ?>
             </div>
         </div>
+
         <div style="text-align: center; margin-top: 20px;">
-            <button onclick="window.location.href='principal.html'" class="btn">Volver a inicio</button>
+            <button onclick="window.location.href='../bienvenida.php'" class="btn">Volver a inicio</button>
         </div>
     </div>
-    <script src="js/registro.js"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@ $calificacionTotal = obtenerCalificacionTotal($con, $usuarioId);
 
 // Usar la función calcularPorcentaje directamente
 $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales'], $calificacionTotal['tests_totales']);
+$_SESSION['procentaje'] = $porcentaje;
 
 require "./inc/actions/logout.php";
 ?>
@@ -34,20 +35,20 @@ require "./inc/actions/logout.php";
     <div class="container">
         <img src="./img/auris.png" alt="" class="img">
         <header>
-            <div class="puntaje">
+            <div class="puntaje" onclick="window.location.href='./vistas/registro.php';">
                 <img src="./img/puntos.png" alt="" >
                 <span class="puntos" id="puntos"></span>
             </div>
 
             <script>
             // Asignamos el valor del porcentaje calculado desde PHP
-            const porcentajeTotal = <?php echo $porcentaje; ?>;
+            const porcentajeTotal = <?php echo $_SESSION['procentaje']; ?>;
 
             // Obtenemos el elemento donde se mostrará el puntaje
             const txtPuntaje = document.querySelector("#puntos");
 
             // Mostrar el porcentaje en el elemento HTML
-            txtPuntaje.innerHTML = porcentajeTotal + '%'; // Mostrar con dos decimales
+            txtPuntaje.innerHTML = porcentajeTotal + '%';
             </script>
 
 

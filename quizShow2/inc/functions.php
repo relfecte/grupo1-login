@@ -79,7 +79,7 @@ function verificarAccesoUsuario2() {
     }
 }
 
-
+//SE USA?
 // Función para validar datos antes de insertarlos o actualizarlos
 function validarDatosUsuario($nombre, $apellido, $usuario, $email) {
     // Aquí puedes agregar validación, como verificar que los campos no estén vacíos, que el email sea válido, etc.

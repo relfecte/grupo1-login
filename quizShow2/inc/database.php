@@ -475,6 +475,27 @@ function actualizarCalificaciones($con, $usuarioId, $puntajePartida, $categoria)
         return false;
     }
 }
+function obtenerCalificacionTotalPorId($con, $usuarioId) {
+    // Consulta SQL para obtener los datos de la tabla calificaciones del usuario
+    $sql = "SELECT * FROM calificaciones WHERE usuario_id = ?";
+    
+    $stmt = mysqli_prepare($con, $sql);
+    if ($stmt) {
+        // Vincular el parámetro y ejecutar la consulta
+        mysqli_stmt_bind_param($stmt, "i", $usuarioId);
+        mysqli_stmt_execute($stmt);
+        $resultado = mysqli_stmt_get_result($stmt);
+        
+        // Verificar si hay datos y devolver un único registro
+        if ($fila = mysqli_fetch_assoc($resultado)) {
+            return $fila;
+        }
+    }
+    
+    // En caso de error o datos no encontrados, devolver null
+    return null;
+}
+
 
 
 function cerrar_conexion($con){
