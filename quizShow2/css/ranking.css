@@ -1,0 +1,104 @@
+body {
+    padding: 20px;
+    height: 130vh;
+    background: linear-gradient(#584bb4, #6a416b, #685082);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 500px;
+    background: linear-gradient(#6051e0, #ad79b9);
+    height: 700px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+header {
+    background-color: #6b5ae4;
+    color: #fff;
+    text-align: center;  /* Esto asegura que el título esté centrado */
+    font-size: 36px;  /* Asegúrate de que el tamaño del título sea grande */
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 3px 3px 5px #2a2929;
+    display: flex;
+    justify-content: center;  /* Centrado del título horizontalmente */
+    align-items: center;  /* Centrado del título verticalmente */
+    margin-bottom: 30px;  /* Puedes ajustar esto para cambiar el espacio debajo del título */
+}
+
+header h1 {
+    font-size: 36px;
+    color: #fff;
+    margin: 0;  /* Elimina el margen por defecto */
+}
+
+.seleccion-categoria {
+    margin-bottom: 30px;
+}
+
+.seleccion-categoria label {
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#categoria {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.ranking {
+    color: #fff;
+}
+
+.ranking h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-usuario p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.ranking-lista ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ranking-lista li {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.volver-atras {
+    text-align: center;
+    margin-top: 60px;  /* Espacio antes del botón */
+}
+
+.volver-atras .btn {
+    background-color: #66499e;
+    color: #fff;
+    border: 0;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    transition: .3s;
+    text-decoration: none;  /* Elimina el subrayado del enlace */
+}
+
+.volver-atras .btn:hover {
+    background-color: #2a2929;
+}
