@@ -199,6 +199,36 @@ header{
     animation: 1s zoom;
     
 }
+
+ .enlace-rankings-wrapper {
+        position: absolute;
+        top: 200px; /* Más abajo del contenedor */
+        left: calc(50% - 270px); /* Más a la izquierda del contenedor */
+        transition: left 0.5s ease; /* Transición de 0.5 segundos */
+    }
+
+    .enlace-rankings {
+        background-color: #eccb0fee;
+        color: black;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Desplazar el enlace hacia la izquierda cuando el ratón esté encima */
+    .enlace-rankings-wrapper:hover {
+        left: calc(50% - 340px); /* Desplaza el contenedor 100px hacia la izquierda */
+    }
+/* Estilo para centrar el botón al final de la página */
+        .boton-cerrar-sesion {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 @keyframes zoom {
     0%{
         transform: scale(1);
