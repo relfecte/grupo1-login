@@ -1,26 +1,30 @@
+
 <link rel="stylesheet" href="../css/admin-estilos.css">
 
-<form class="formulario" action="./inc/admin/crear_usuario.php" method="POST">
-    <label class="label">Nombre:</label>
-    <input class="input" type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
+
+<form class="formulario-admin" action="./inc/admin/crear_usuario.php" method="POST">
+    <div class="header-admin">Crear usuario</div>
+    <label class="label-admin">Nombre:</label>
+    <input class="input-admin" type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
     <br>
-    <label class="label">Apellido:</label>
-    <input class="input" type="text" name="apellido" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El apellido debe contener entre 3 y 40 letras.">
+    <label class="label-admin">Apellido:</label>
+    <input class="input-admin" type="text" name="apellido" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El apellido debe contener entre 3 y 40 letras.">
     <br>
-    <label class="label">Usuario:</label>
-    <input class="input" type="text" name="usuario" required pattern="[a-zA-Z0-9]{3,20}" maxlength="20" title="El usuario debe contener entre 3 y 20 caracteres alfanuméricos.">
+    <label class="label-admin">Usuario:</label>
+    <input class="input-admin" type="text" name="usuario" required pattern="[a-zA-Z0-9]{3,20}" maxlength="20" title="El usuario debe contener entre 3 y 20 caracteres alfanuméricos.">
     <br>
-    <label class="label">Email:</label>
-    <input class="input" type="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
+    <label class="label-admin">Email:</label>
+    <input class="input-admin" type="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
     <br>
-    <label class="label">Clave:</label>
-    <input class="input" type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
-    <label class="label">Cuenta administrador:</label>
-    <select class="select" name="admin" required>
-        <option class="option" value="1">ADMIN</option>
-        <option class="option" value="0">USUARIO</option>
+    <label class="label-admin">Clave:</label>
+    <input class="input-admin" type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <label class="label-admin">Cuenta administrador:</label>
+    <select class="select-admin" name="admin" required>
+        <option class="option-admin" value="1">ADMIN</option>
+        <option class="option-admin" value="0">USUARIO</option>
     </select>
     <br>
-    <button class="button-crear" type="submit">Crear usuario</button>
+    <button class="button-admin" type="submit">Crear usuario</button>
 </form>
-<script src="assets/js/crear-usuario.js"></script>
+<script src="../js/crear-usuario.js"></script>
+
