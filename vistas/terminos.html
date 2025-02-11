@@ -3,104 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones</title>
-    <link rel="stylesheet" href="estilo.css">
+    <title>Términos y condiciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        body {
+            padding: 20px;
+            background: linear-gradient(#584bb4, #6a416b, #685082);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            color: #fff;
+        }
+        .container {
+            width: 500px;
+            background: linear-gradient(#6051e0, #ad79b9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            
+        }
+        
+        .header {
+            text-align: center;
+            background-color: #6b5ae4;
+            padding: 10px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 3px 3px 5px #2a2929;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        .section p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #66499e;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background-color: #2a2929;
+        }
+        a {
+            text-decoration: none;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Términos y Condiciones</h1>
-        </header>
-        <section class="contenido">
-            <style>
-                .container {
-                    max-width: 500px;
-                    width: 100%;
-                    background: linear-gradient(#6051e0, #ad79b9);
-                    padding: 30px;
-                    border-radius: 15px;
-                    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-                    min-height: 100vh; /* Ocupa el 100% de la pantalla */
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden; /* Evita que el contenido sobresalga */
-                }
+        <div class="header">Términos y condiciones</div>
 
-                .contenido {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    padding: 20px;
-                    box-sizing: border-box;
-                    overflow-y: auto; /* Agrega scroll si el contenido es muy largo */
-                }
-                
-                h2 {
-                    color: white;
-                    margin: 20px 0;
-                    text-decoration: underline;
-                }
+        <div class="section">
+            <h2>1. Aceptación de los términos</h2>
+            <p>Al participar en este Quiz, aceptas cumplir con todos los términos y condiciones aquí establecidos. Si no estás de acuerdo, por favor abstente de participar.</p>
+        </div>
 
-                p {
-                    color: white;
-                    margin: 15px 0;
-                    line-height: 1.5;
-                }
+        <div class="section">
+            <h2>2. Requisitos de participación</h2>
+            <p>Este Quiz está destinado a personas mayores de 18 años. Si eres menor de edad, necesitarás el consentimiento de un tutor legal.</p>
+        </div>
 
-                .contenido-detallado {
-                    width: 100%;
-                }
+        <div class="section">
+            <h2>3. Uso de la información</h2>
+            <p>La información recopilada durante tu participación se utilizará únicamente con fines relacionados con el Quiz. No compartiremos tus datos con terceros.</p>
+        </div>
 
-                .btn {
-                    display: block;
-                    margin: 30px auto 0;
-                    padding: 10px 20px;
-                    background-color: #66499e;
-                    color: white;
-                    border: none;
-                    border-radius: 50px;
-                    font-size: 16px;
-                    cursor: pointer;
-                    text-transform: uppercase;
-                    transition: 0.3s;
-                }
+        <div class="section">
+            <h2>4. Propiedad intelectual</h2>
+            <p>Todo el contenido del Quiz, incluyendo preguntas, imágenes y diseño, es propiedad de la organización y está protegido por las leyes de derechos de autor.</p>
+        </div>
 
-                .btn:hover {
-                    background-color: #2a2929;
-                }
-            </style>
+        <div class="section">
+            <h2>5. Limitación de responsabilidad</h2>
+            <p>No nos hacemos responsables por errores técnicos, interrupciones o cualquier otro inconveniente que pueda surgir durante tu participación.</p>
+        </div>
 
-            <div class="contenido-detallado">
-                <h2 class="contenido__title">1. Aceptación de los términos</h2>
-                <p class="contenido__p">Al participar en este Quiz, aceptas cumplir con todos los términos y condiciones aquí establecidos. Si no estás de acuerdo, por favor abstente de participar.</p>
+        <div class="section">
+            <h2>6. Modificaciones</h2>
+            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán publicadas en esta página.</p>
+        </div>
 
-                <h2 class="contenido__title">2. Requisitos de participación</h2>
-                <p class="contenido__p">Este Quiz está destinado a personas mayores de 18 años. Si eres menor de edad, necesitarás el consentimiento de un tutor legal.</p>
+        <div class="section">
+            <h2>7. Contacto</h2>
+            <p>Si tienes alguna pregunta o inquietud, puedes contactarnos a través de nuestro correo electrónico: soporte@quiz.com</p>
+        </div>
+          
+        
 
-                <h2 class="contenido__title">3. Uso de la información</h2>
-                <p class="contenido__p">La información recopilada durante tu participación se utilizará únicamente con fines relacionados con el Quiz. No compartiremos tus datos con terceros.</p>
-
-                <h2 class="contenido__title">4. Propiedad intelectual</h2>
-                <p class="contenido__p">Todo el contenido del Quiz, incluyendo preguntas, imágenes y diseño, es propiedad de la organización y está protegido por las leyes de derechos de autor.</p>
-
-                <h2 class="contenido__title">5. Limitación de responsabilidad</h2>
-                <p class="contenido__p">No nos hacemos responsables por errores técnicos, interrupciones o cualquier otro inconveniente que pueda surgir durante tu participación.</p>
-
-                <h2 class="contenido__title">6. Modificaciones</h2>
-                <p class="contenido__p">Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán publicadas en esta página.</p>
-
-                <h2 class="contenido__title">7. Contacto</h2>
-                <p class="contenido__p">Si tienes alguna pregunta o inquietud, puedes contactarnos a través de nuestro correo electrónico: soporte@quiz.com</p>
-            </div>
-
-            <a href="../index.php"><input type="button" class="btn" value="Atrás"></a>
-        </section>
+        <a href="../index.php"><button class="btn">Atrás</button></a>
     </div>
 </body>
 </html>
-
-

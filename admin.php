@@ -96,6 +96,11 @@ th a {
     font-weight: bold;
     padding: 8px 16px;
 }
+.foto-categoria {
+    width: 50px; /* Ajusta el tamaño según lo necesites */
+    height: 50px; /* Asegura que sea cuadrado o del tamaño deseado */
+}
+
 
 </style>
 </head>
@@ -108,19 +113,23 @@ th a {
         <nav>
             <ul class="categorias">
                <li class="categoria">
-              <a href="admin.php?section=usuarios" class="foto-categoria1">
-              <img src="img/user.png" alt="Usuarios" class="foto-categoria">
-               <span>Usuarios</span>
-               </a>
+                    <a href="admin.php?section=usuarios" class="foto-categoria1">
+                        <img src="img/user.png" alt="Usuarios" class="foto-categoria">
+                        <span>Usuarios</span>
+                    </a>
                </li>
-              <li class="categoria">
-              <a href="admin.php?section=calificaciones" class="foto-categoria1">
-              <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
-               <span>Calificaciones</span>
-                 </a>
-                 </li>
                 <li class="categoria">
-                    <a href="admin.php?section=preguntas" class="foto-categoria1">Preguntas</a>
+                    <a href="admin.php?section=calificaciones" class="foto-categoria1">
+                        <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+                        <span>Calificaciones</span>
+                    </a>
+                </li>
+                <li class="categoria">
+                    <a href="admin.php?section=preguntas" class="foto-categoria1">
+                        <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+                        <span>Preguntas</span>
+                    </a>
+                    
                     <ul>
                         <!-- Desplegable con categorías -->
                         <?php
@@ -130,7 +139,7 @@ th a {
                         }
                         ?>
                     </ul>
-                </li>
+                 </li>
             </ul>
         </nav>
 

@@ -5,7 +5,7 @@ require_once 'functions.php';
 // Función para mostrar todos los usuarios (esto se puede llamar desde el archivo que genera la vista)
 function mostrarUsuarios($conexion) {
     $usuarios = obtenerUsuarios($conexion);
-
+    echo "<h2>Usuarios</h2>";
     echo "<table border='1'>
     <tr>
         <th>Nombre</th>
