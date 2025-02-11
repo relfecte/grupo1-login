@@ -101,9 +101,7 @@ require "./inc/actions/logout.php";
                 </div>
                 </div>
         </main>
-        <div class="boton-cerrar-sesion">
-            <a href="../index.php" class="btn cerrar-sesion">Cerrar Sesión</a>
-        </div>
+        <?php require "./inc/actions/logout.php"; ?>
     </div>
 
     <script src="./js/principal.js"></script>
