@@ -32,6 +32,9 @@ require "./inc/actions/logout.php";
     <title>Game Quiz</title>
 </head>
 <body>
+    <div class="enlace-rankings-wrapper">
+    <a href="./vistas/rankings.php" class="enlace-rankings">Ranking</a>
+</div>
     <div class="container">
         <img src="./img/auris.png" alt="" class="img">
         <header>
@@ -98,6 +101,7 @@ require "./inc/actions/logout.php";
                 </div>
                 </div>
         </main>
+        <?php require "./inc/actions/logout.php"; ?>
     </div>
 
     <script src="./js/principal.js"></script>

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="../css/admin-estilos.css">
+
+
+
+<form class="formulario" action="../inc/admin/modificar_usuario.php?usuario_id=<?php echo $usuario_id; ?>" method="POST">
+    <label class="label">Nombre:</label>
+    <input class="input" type="text" name="nombre">
+    <br>
+    <label class="label">Apellido:</label>
+    <input class="input" type="text" name="apellido">
+    <br>
+    <label class="label">Usuario:</label>
+    <input class="input" type="text" name="usuario">
+    <br>
+    <label class="label">Email:</label>
+    <input class="input" type="email" name="email">
+    <br>
+    <label class="label">Clave:</label>
+    <input class="input" type="password" name="clave" minlength="6">
+    <br>
+    <label class="label">Cuenta Administrador:</label>
+    <select class="select" name="admin" required>
+        <option class="option" value="1">ADMIN</option>
+        <option class="option" value="0">USUARIO</option>
+    </select>
+    <br>
+    <button class="button-crear" type="submit">Editar usuario</button>
+</form>

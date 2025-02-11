@@ -18,6 +18,86 @@ verificarAccesoAdmin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="css/admin_estilos.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(#584bb4, #6a416b, #685082, #4e3b62);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: white;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background: #66499e;
+    font-size: 1rem;
+}
+
+td {
+    font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    color: white;
+    background-color: #6051e0;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    background-color: #2a2929;
+}
+
+/* Botón de Crear */
+th a {
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+</style>
 </head>
 <body>
     <div class="container">

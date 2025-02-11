@@ -1,93 +1,180 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto Condensed';
-        }
-        body {
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(#584bb4, #6a416b, #685082);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .contenido {
-            width: 500px;
-            background: linear-gradient(#6051e0, #ad79b9);
-            height: 90%; /* Reduce la altura para dar espacio */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 3rem; /* Espacio desde el borde superior */
-        }
-        h2 {
-            font-size: 2rem;
-            margin-top: 2rem; /* Ajuste para espacio superior */
-            margin-bottom: 1rem; /* Espacio entre el título y el menú */
-            text-align: center; /* Centra el título */
-            color: white;
-        }
-        nav {
-            margin-bottom: 2rem; /* Espacio entre el menú y el botón */
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px; /* Espacio entre las opciones del menú */
-            justify-content: center; /* Centra las opciones horizontalmente */
-        }
-        nav ul li {
-            position: relative;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            background-color: #66499e;
-            transition: background-color 0.3s;
-        }
-        nav ul li a:hover {
-            background-color: #2a2929;
-        }
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #60439d;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        nav ul li:hover ul {
-            display: block;
-        }
-        nav ul li ul li {
-            margin: 5px 0;
-        }
-        nav ul li ul li a {
-            display: block;
-            padding: 5px;
-        }
-        button {
-            background-color: #66499e;
-            color: #fff;
-            border: 0;
-            padding: 10px;
-            font-weight: bold;
-            border-radius: 50px;
-            margin-top: 30px; /* Distancia entre el menú y el botón */
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-        button:hover {
-            background-color: #2a2929;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed';
+}
+body {
+    padding: 0;
+    min-height: 100vh; 
+    background: linear-gradient(#584bb4, #6a416b, #685082, #4e3b62);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.contenido {
+    width: 400px; /* Reducido el ancho */
+    background: linear-gradient(#6051e0, #ad79b9);
+    height: 80%; /* Reduje la altura */
+    padding: 15px; /* Reduje el padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem; /* Espacio desde el borde superior */
+}
+h2 {
+    font-size: 1.5rem; /* Reducido el tamaño del título */
+    margin-top: 1.5rem; /* Espacio superior reducido */
+    margin-bottom: 0.3rem; /* Reducido el espacio entre el título y el menú */
+    text-align: center;
+    color: white;
+}
+
+nav {
+    margin-bottom: 12rem; /* Reduje el espacio inferior */
+    margin-top: 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Reducido el espacio entre las opciones del menú */
+    justify-content: center;
+}
+nav ul li {
+    position: relative;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px; /* Reducido el padding */
+    border-radius: 5px;
+    background-color: #66499e;
+    transition: background-color 0.3s;
+}
+nav ul li a:hover {
+    background-color: #2a2929;
+}
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #60439d;
+    border-radius: 5px;
+    padding: 8px; /* Reducido el padding */
+}
+nav ul li:hover ul {
+    display: block;
+}
+nav ul li ul li {
+    margin: 3px 0; /* Reducido el espacio entre los elementos del submenú */
+}
+nav ul li ul li a {
+    display: block;
+    padding: 4px;
+}
+button {
+    background-color: #66499e;
+    color: #fff;
+    border: 0;
+    padding: 8px 16px; /* Reducido el padding */
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 20px; /* Distancia entre el menú y el botón */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Reduje el espaciado entre letras */
+    font-size: 14px; /* Reducido el tamaño de fuente */
+    transition: 0.3s;
+}
+button:hover {
+    background-color: #2a2929;
+}
+
+.formulario {
+    width: 100%;
+    max-width: 400px; /* Reducido el ancho máximo */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px; /* Reducido el padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reducido el espacio entre los elementos */
+}
+.label {
+    color: white;
+    font-size: 1rem; /* Reducido el tamaño de la fuente */
+    margin-bottom: 4px; /* Reducido el margen */
+}
+.input {
+    width: 100%;
+    padding: 8px; /* Reducido el padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Reducido el tamaño de la fuente */
+    outline: none;
+    transition: border-color 0.3s;
+}
+.input:focus {
+    border-color: #66499e;
+}
+.button-crear {
+    align-self: center;
+    background-color: #66499e;
+    color: #fff;
+    border: 0;
+    padding: 8px 16px; /* Reducido el padding */
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px; /* Reducido el tamaño de fuente */
+    transition: background-color 0.3s;
+}
+.button-crear:hover {
+    background-color: #2a2929;
+}
+
+.select {
+    width: 100%;
+    padding: 8px; /* Reducido el padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Reducido el tamaño de la fuente */
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.select:focus {
+    border-color: #66499e;
+}
+
+.option {
+    background-color: #66499e;
+    color: white;
+    padding: 8px; /* Reducido el padding */
+    border: none;
+    transition: background-color 0.3s;
+}
+.option:hover {
+    background-color: #2a2929;
+}
+
+.textarea {
+    width: 100%;
+    padding: 8px; /* Reducido el padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Reducido el tamaño de la fuente */
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+
+
