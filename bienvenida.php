@@ -33,7 +33,7 @@ require "./inc/actions/logout.php";
 </head>
 <body>
     <div class="enlace-rankings-wrapper">
-    <a href="../rankings.php" class="enlace-rankings">Ranking</a>
+    <a href="./vistas/rankings.php" class="enlace-rankings">Ranking</a>
 </div>
     <div class="container">
         <img src="./img/auris.png" alt="" class="img">
