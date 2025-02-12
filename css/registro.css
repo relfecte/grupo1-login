@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        body {
+            padding: 8px;
+            height: 100vh;
+            background: linear-gradient(#584bb4, #6a416b, #685082);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container__registro {
+            width: 300px; /* Se redujo aún más el tamaño */
+            background: linear-gradient(#6051e0, #ad79b9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            text-align: center;
+        }
+
+        .header__registro {
+           
+    text-align: center;
+    background-color: #6b5ae4;
+    padding: 8px 40px;
+    margin-top: 8px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 4px #2a2929;
+}
+        
+
+        .general-score__registro {
+            margin-bottom: 15px;
+        }
+
+        .general-score__registro h2 {
+            font-size: 14px; /* Se redujo el tamaño */
+        }
+
+        .general-score__registro .percentage__registro {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffe43a;
+        }
+
+        .scores__registro {
+            margin-top: 10px;
+        }
+
+        .scores__registro h3 {
+            font-size: 14px; /* Se redujo el tamaño */
+            margin-bottom: 8px;
+        }
+
+        .score-category {
+            background-color: #60439d;
+            padding: 8px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 12px; /* Se redujo el tamaño */
+        }
+
+        .score-category .percentage__registro {
+            background-color: #3f40ae;
+            padding: 4px 8px;
+            border-radius: 50px;
+            font-size: 12px; /* Se redujo el tamaño */
+        }
+
+        .btn__registro {
+            background-color: #66499e;
+            color: #fff;
+            border: 0;
+            padding: 6px 10px;
+            font-size: 12px; /* Se redujo el tamaño */
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn__registro:hover {
+            background-color: #2a2929;
+        }
+  
