@@ -46,7 +46,7 @@ verificarAccesoUsuario2();
             </div>
         </div>
         <div style="text-align: center; margin-top: 10px;">
-            <button onclick="window.location.href='principal.html'" class="btn__registro">Volver a inicio</button>
+            <button onclick="window.location.href='../bienvenida.php'" class="btn__registro">Volver a inicio</button>
         </div>
     </div>
     <script src="../js/registro.js"></script>
