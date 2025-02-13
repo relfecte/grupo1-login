@@ -49,7 +49,7 @@ verificarAccesoUsuario2();
             <button onclick="window.location.href='../bienvenida.php'" class="btn__registro">Volver a inicio</button>
         </div>
     </div>
-    <script src="../js/registro.js"></script>
+   
 </body>
 </html>
 
