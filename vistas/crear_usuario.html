@@ -1,9 +1,16 @@
-<html>
-<link rel="stylesheet" href="../css/admin-estilos.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Admin</title>
+    <link rel="stylesheet" href="../css/admin_estilos.css">
+</head>
+<body>
 
 
 <form class="formulario-admin" action="./inc/admin/crear_usuario.php" method="POST">
-    <div class="header-admin">Crear usuario</div>
+    <div class="header-admin">Crear </div>
     <label class="label-admin">Nombre:</label>
     <input class="input-admin" type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
     <br>
@@ -27,5 +34,5 @@
     <button class="button-admin" type="submit">Crear usuario</button>
 </form>
 <script src="../js/crear-usuario.js"></script>
-
+</body>
 </html>
