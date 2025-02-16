@@ -114,19 +114,19 @@ td span {
         <nav>
             <ul class="categorias">
                <li class="categoria">
-                    <a href="admin.php?section=usuarios" class="foto-categoria1">
+                    <a href="admin.php?section=usuarios" >
                         <img src="img/user.png" alt="Usuarios" class="foto-categoria">
                         <span>Usuarios</span>
                     </a>
                </li>
                 <li class="categoria">
-                    <a href="admin.php?section=calificaciones" class="foto-categoria1">
+                    <a href="admin.php?section=calificaciones" >
                         <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
                         <span>Calificaciones</span>
                     </a>
                 </li>
                 <li class="categoria">
-                    <a href="admin.php?section=preguntas" class="foto-categoria1">
+                    <a href="admin.php?section=preguntas" >
                         <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
                         <span>Preguntas</span>
                     </a>
@@ -138,7 +138,7 @@ td span {
                         $categorias = obtenerCategorias($con); // Función que debes crear
                         while ($categoria = obtener_resultados($categorias)) {
                             $nombreCategoria = ucfirst(strtolower($categoria['categoria'])); // Convierte a minúsculas y luego pone en mayúscula la primera letra
-                            echo "<li><a href='admin.php?section=preguntas&categoria=" . urlencode($categoria['categoria']) . "' class='foto-categoria1'>" . htmlspecialchars($nombreCategoria) . "</a></li>";
+                            echo "<li><a href='admin.php?section=preguntas&categoria=" . urlencode($categoria['categoria']) . "' >" . htmlspecialchars($nombreCategoria) . "</a></li>";
                         }
                         ?>
                     </ul>
