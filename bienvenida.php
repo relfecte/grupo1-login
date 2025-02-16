@@ -20,7 +20,6 @@ $calificacionTotal = obtenerCalificacionTotal($con, $usuarioId);
 $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales'], $calificacionTotal['tests_totales']);
 $_SESSION['procentaje'] = $porcentaje;
 
-require "./inc/actions/logout.php";
 ?>
 
 <!DOCTYPE html>
