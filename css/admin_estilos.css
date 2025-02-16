@@ -42,6 +42,7 @@ nav ul {
     display: flex;
     gap: 15px; /* Reducido el espacio entre las opciones del menú */
     justify-content: center;
+    margin-top: -50px;
 }
 nav ul li {
     position: relative;
@@ -89,6 +90,9 @@ button {
     letter-spacing: 1px; /* Reduje el espaciado entre letras */
     font-size: 14px; /* Reducido el tamaño de fuente */
     transition: 0.3s;
+    position: absolute;
+    top: -50px;
+    right: -220px;
 }
 button:hover {
     background-color: #2a2929;
@@ -234,6 +238,31 @@ button:hover {
 
 .button-admin:hover {
     background-color: #2a2929;
+}
+
+.container {
+    width: 500px;
+    background: linear-gradient(#6051e0, #ad79b9);
+    height: 240px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: -500px;
+    
+}
+
+.h1__admin{
+    text-align: center;
+    background-color: #6b5ae4;
+    padding: 8px 20px;
+    margin-top: 20px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    box-shadow: 2px 2px 4px #2a2929;
 }
 
 
