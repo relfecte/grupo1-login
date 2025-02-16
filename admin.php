@@ -21,12 +21,6 @@ verificarAccesoAdmin();
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
-}
 
 
 
@@ -96,6 +90,8 @@ a:hover {
 th a {
     font-weight: bold;
     padding: 8px 16px;
+    white-space: nowrap;
+    display: inline-block;
 }
 .foto-categoria {
     width: 50px; /* Ajusta el tamaño según lo necesites */
