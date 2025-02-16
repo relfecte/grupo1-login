@@ -41,9 +41,11 @@ function mostrarPreguntas($conexion){
          $preguntas = obtenerPreguntas($conexion);
      }
  
+    // Convertir la categoría para que inicie con mayúscula
+    $categoriaFormateada = $categoria ? ucfirst(strtolower($categoria)) : "";
 
     // Mostrar la tabla de preguntas
-    echo "<h2>Preguntas ". ($categoria ? " - Categoría: $categoria" : "") ."</h2>";
+    echo "<h2>Preguntas ". ($categoria ? " - Categoría: $categoriaFormateada" : "") ."</h2>";
     echo "<table border='1'>
     <tr>
         <th>ID</th>

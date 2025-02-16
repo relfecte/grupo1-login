@@ -137,7 +137,8 @@ td span {
                         <?php
                         $categorias = obtenerCategorias($con); // Función que debes crear
                         while ($categoria = obtener_resultados($categorias)) {
-                            echo "<li><a href='admin.php?section=preguntas&categoria=" . urlencode($categoria['categoria']) . "' class='foto-categoria1'>" . htmlspecialchars($categoria['categoria']) . "</a></li>";
+                            $nombreCategoria = ucfirst(strtolower($categoria['categoria'])); // Convierte a minúsculas y luego pone en mayúscula la primera letra
+                            echo "<li><a href='admin.php?section=preguntas&categoria=" . urlencode($categoria['categoria']) . "' class='foto-categoria1'>" . htmlspecialchars($nombreCategoria) . "</a></li>";
                         }
                         ?>
                     </ul>
