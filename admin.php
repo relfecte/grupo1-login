@@ -28,20 +28,21 @@ verificarAccesoAdmin();
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-body {
-    padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(#584bb4, #6a416b, #685082, #4e3b62);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
+
 
 h1 {
     font-size: 1.8rem;
     margin: 20px 0;
     color: white;
+}
+
+body {
+    padding: 20px;
+    height: 130vh;
+    background: linear-gradient(#584bb4, #6a416b, #685082);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos para la tabla */
@@ -107,7 +108,7 @@ th a {
 <body>
     <div class="container">
         <header>
-            <h1>Panel de Administración - <?php echo $_SESSION['usuario_usuario']?></h1>
+            <h1 class="h1__admin">Panel de Administración - <?php echo $_SESSION['usuario_usuario']?></h1>
         </header>
         <!-- Barra de Navegación -->
         <nav>
@@ -131,6 +132,7 @@ th a {
                     </a>
                     
                     <ul>
+
                         <!-- Desplegable con categorías -->
                         <?php
                         $categorias = obtenerCategorias($con); // Función que debes crear
@@ -141,9 +143,7 @@ th a {
                     </ul>
                  </li>
             </ul>
-        </nav>
-
-        <!-- Contenido Principal -->
+            <!-- Contenido Principal -->
         <div class="contenido inicio">
             <?php
             if (isset($_GET['section'])) {
@@ -171,9 +171,15 @@ th a {
                 echo "<h2>Bienvenido al panel de administración</h2>";
             }
             ?>
+            
         </div>
+           
+        </nav>
+       
+
+        
         <footer class="menu">
-            <?php require "./inc/actions/logout.php"; ?>
+        <?php require "./inc/actions/logout.php"; ?>
         </footer>
     </div>
 </body>
