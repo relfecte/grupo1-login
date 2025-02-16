@@ -15,10 +15,10 @@ body {
     justify-content: flex-start;
 }
 .contenido {
-    width: 400px; /* Reducido el ancho */
-    background: linear-gradient(#6051e0, #ad79b9);
+    /* width: 400px; Reducido el ancho */
+    /*background: linear-gradient(#6051e0, #ad79b9);*/
     height: 80%; /* Reduje la altura */
-    padding: 15px; /* Reduje el padding */
+    padding: 5px; /* Reduje el padding */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
