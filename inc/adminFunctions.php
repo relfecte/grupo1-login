@@ -24,7 +24,7 @@ function mostrarUsuarios($conexion) {
         echo "<td>" . $row['usuario_email'] . "</td>";
         echo "<td>" . $row['usuario_admin'] . "</td>";
         echo "<td> <a href='./vistas/modificar_usuario.php?usuario_id=" . $row['usuario_id'] . "'>Editar</a> |
-        <a href='./inc/admin/eliminar_usuario.php?usuario_id=" . $row['usuario_id'] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este usuario?\")'>Eliminar</a>";
+        <a href='./inc/admin/eliminar_usuario.php?usuario_id=" . $row['usuario_id'] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este usuario?\")'>Eliminar</a></td>";
         echo "</tr>";
     }
     echo "</table>";
@@ -65,8 +65,8 @@ function mostrarPreguntas($conexion){
         echo "<td>" . $row['opcion2'] . "</td>";
         echo "<td>" . $row['opcion3'] . "</td>";
         echo "<td>" . $row['opcion4'] . "</td>";
-        echo "<td> <a href='./vistas/modificar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "'>Editar</a> |
-        <a href='./inc/admin/eliminar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta pregunta?\")'>Eliminar</a>";
+        echo "<td> <span><a href='./vistas/modificar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "'>Editar</a> |
+        <a href='./inc/admin/eliminar_pregunta.php?pregunta_id=" . $row['pregunta_id'] . "' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta pregunta?\")'>Eliminar</a> </span> </td>";
         echo "</tr>";
     }
     echo "</table>";

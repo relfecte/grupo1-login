@@ -42,7 +42,7 @@ body {
 /* Estilos para la tabla */
 table {
     width: 90%;
-    max-width: 800px;
+    max-width: auto;
     border-collapse: collapse;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -92,6 +92,10 @@ th a {
     padding: 8px 16px;
     white-space: nowrap;
     display: inline-block;
+}
+td span {
+    white-space: nowrap;
+;
 }
 .foto-categoria {
     width: 50px; /* Ajusta el tamaño según lo necesites */
