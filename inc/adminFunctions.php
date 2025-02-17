@@ -6,7 +6,7 @@ require_once 'functions.php';
 function mostrarUsuarios($conexion) {
     $usuarios = obtenerUsuarios($conexion);
     echo "<h2>Usuarios</h2>";
-    echo "<table border='1'>
+    echo "<table class='tabla_usuarios' border='1'>
     <tr>
         <th>Nombre</th>
         <th>Apellido</th>
@@ -80,7 +80,7 @@ function mostrarCalificaciones($conexion){
 
     // Mostrar la tabla de calificaciones
     echo "<h2>Calificaciones</h2>";
-    echo "<table border='1'>
+    echo "<table class='tabla_calificaciones' border='1'>
     <tr>
         <th>Usuario</th>
         <th>Tests Totales</th>
