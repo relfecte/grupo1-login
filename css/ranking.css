@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    width: 500px; /* Se redujo aún más el tamaño */
+    width: 500px; 
     background: linear-gradient(#6051e0, #ad79b9);
     padding: 10px;
     border-radius: 8px;
@@ -26,6 +26,7 @@ body {
     color: #fff;
     text-align: center;
     height: 600px;
+    margin-top: -200px;
     
 }
 
