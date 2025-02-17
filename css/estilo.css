@@ -208,9 +208,9 @@ header{
 
  .enlace-rankings-wrapper {
         position: absolute;
-        top: 200px; /* Más abajo del contenedor */
-        left: calc(50% - 270px); /* Más a la izquierda del contenedor */
-        transition: left 0.5s ease; /* Transición de 0.5 segundos */
+        top: 200px; 
+        left: calc(50% - 270px); 
+        transition: left 0.5s ease; 
     }
 
     .enlace-rankings {
@@ -363,4 +363,13 @@ nav ul li a {
     font-size: 16px; /* Tamaño del texto */
     font-weight: bold;
 }
+
+@media screen and (max-width: 560px) {
+    .enlace-rankings-wrapper {
+        top: 10px; 
+        left: 10%; 
+        transform: translateX(-50%); 
+    }
+}
+
 
