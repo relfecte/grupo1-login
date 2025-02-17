@@ -41,13 +41,14 @@ body {
 
 /* Estilos para la tabla */
 table {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
+    
 }
 
 th, td {
@@ -100,12 +101,13 @@ td span {
     width: 50px; /* Ajusta el tamaño según lo necesites */
     height: 50px; /* Asegura que sea cuadrado o del tamaño deseado */
 }
+/*
 .tabla_pregunta {
     width: 90%;
     table-layout: fixed;
     min-width: 900px;
 
-}
+}*/
 
 .tabla_pregunta th:nth-child(1), .tabla_pregunta td:nth-child(1) {
     width: 4.47%;
@@ -138,6 +140,98 @@ td span {
 .tabla_pregunta th:nth-child(8), .tabla_pregunta td:nth-child(8) {
     width: 20.16%;
 }
+
+@media screen and (max-width: 1300px) {
+    .tabla_pregunta {
+        
+    width: 100%;
+    display: block; /* Permite que la tabla sea desplazable si es necesario */
+    overflow-x: auto; /* Agrega scroll horizontal si la tabla es más grande que la pantalla */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas y expanda la tabla */
+
+    }
+}
+
+.tabla_pregunta::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tabla_pregunta::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color sutil para la parte móvil */
+    border-radius: 10px;
+}
+
+.tabla_pregunta::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Fondo más claro para el track */
+}
+
+@media screen and (max-width: 1434px) {
+    .tabla_calificaciones {
+        
+    width: 100%;
+    display: block; /* Permite que la tabla sea desplazable si es necesario */
+    overflow-x: auto; /* Agrega scroll horizontal si la tabla es más grande que la pantalla */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas y expanda la tabla */
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .tabla_usuarios {
+        
+    width: 100%;
+    display: block; /* Permite que la tabla sea desplazable si es necesario */
+    overflow-x: auto; /* Agrega scroll horizontal si la tabla es más grande que la pantalla */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas y expanda la tabla */
+
+    }
+}
+
+
+
+.tabla_calificaciones::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tabla_calificaciones::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color sutil para la parte móvil */
+    border-radius: 10px;
+}
+
+.tabla_calificaciones::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Fondo más claro para el track */
+}
+
+.tabla_usuarios::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tabla_usuarios::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Color sutil para la parte móvil */
+    border-radius: 10px;
+}
+
+.tabla_usuarios::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Fondo más claro para el track */
+}
+
+
+
 
 </style>
 </head>
