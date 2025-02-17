@@ -87,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Game Quiz</title>
 </head>
 <body>
+<?php require_once "../inc/actions/logout2.php"; ?>
     <div class="container">
         <img src="../img/auris.png" alt="" class="img">
         <header>

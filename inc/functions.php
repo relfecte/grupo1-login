@@ -41,6 +41,21 @@ function logout($con) {
     header("Location: ./index.php");
     exit();
 }
+// Función para cerrar sesión
+function logout2($con) {
+    //limpier bufer 
+    ob_clean();
+
+    // Destruir la sesión
+    session_destroy();
+
+    // Si tienes una conexión abierta, ciérrala
+    cerrar_conexion($con);
+
+    // Redirigir al usuario a la página principal
+    header("Location: ../index.php");
+    exit();
+}
 
 
 // Función para redirigir según el rol del usuario

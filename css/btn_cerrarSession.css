@@ -1,0 +1,24 @@
+form.boton-cerrar-sesion {
+    position: absolute;
+    top: 100px;
+    right: 215px;
+}
+
+.btn.cerrar-sesion {
+    background-color: #eccb0fee;
+    color: black;
+    border: 0;
+    padding: 8px 16px; /* Reducido el padding */
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 20px; /* Distancia entre el menú y el botón */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Reduje el espaciado entre letras */
+    font-size: 14px; /* Reducido el tamaño de fuente */
+    transition: 0.3s;
+}
+.btn.cerrar-sesion:hover {
+    background-color: #b89c0d; /* Un dorado más oscuro */
+    color: white;
+}

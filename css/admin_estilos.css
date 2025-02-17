@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('btn_cerrarSession.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -78,26 +80,7 @@ nav ul li ul li a {
     display: block;
     padding: 4px;
 }
-button {
-    background-color: #66499e;
-    color: #fff;
-    border: 0;
-    padding: 8px 16px; /* Reducido el padding */
-    font-weight: bold;
-    border-radius: 50px;
-    margin-top: 20px; /* Distancia entre el menú y el botón */
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px; /* Reduje el espaciado entre letras */
-    font-size: 14px; /* Reducido el tamaño de fuente */
-    transition: 0.3s;
-    position: absolute;
-    top: -50px;
-    right: -220px;
-}
-button:hover {
-    background-color: #2a2929;
-}
+
 
 .formulario {
     width: 100%;

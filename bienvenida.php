@@ -20,7 +20,6 @@ $calificacionTotal = obtenerCalificacionTotal($con, $usuarioId);
 $porcentaje = calcularPorcentaje($calificacionTotal['preguntas_acertadas_totales'], $calificacionTotal['tests_totales']);
 $_SESSION['procentaje'] = $porcentaje;
 
-require "./inc/actions/logout.php";
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +31,7 @@ require "./inc/actions/logout.php";
     <title>Game Quiz</title>
 </head>
 <body>
+    <?php require "./inc/actions/logout.php"; ?>
     <div class="enlace-rankings-wrapper">
     <a href="./vistas/rankings.php" class="enlace-rankings">Ranking</a>
 </div>
@@ -101,7 +101,6 @@ require "./inc/actions/logout.php";
                 </div>
                 </div>
         </main>
-        <?php require "./inc/actions/logout.php"; ?>
     </div>
 
     <script src="./js/principal.js"></script>

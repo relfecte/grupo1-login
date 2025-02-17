@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('btn_cerrarSession.css');
+
 *{
     margin: 0;
     padding: 0;
@@ -75,6 +77,10 @@ header{
 }
 .btn:hover{
     background-color: #2a2929;
+}
+
+.puntaje{
+    cursor:pointer;
 }
 
 .puntaje, .jugador{
@@ -222,15 +228,17 @@ header{
     .enlace-rankings-wrapper:hover {
         left: calc(50% - 340px); /* Desplaza el contenedor 100px hacia la izquierda */
     }
-/* Estilo para centrar el botón al final de la página */
-        .boton-cerrar-sesion {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    .enlace-rankings-wrapper:hover .enlace-rankings {
+        border-top-right-radius: 0px; /* Quita redondeado arriba */
+        border-bottom-right-radius: 0px; /* Quita redondeado abajo */
+        width: 350px; /* Expande el ancho para parecer que sigue */
+    }
+    .enlace-rankings-wrapper .enlace-rankings {
+        transition: background-color 0.3s ease, border-radius 0.5s ease, width 0.5s ease 0.3s; /* El efecto se mantiene 0.3s más */
+    }
 
-container__register {
+
+.container__register {
     width: 500px;
     background: linear-gradient(#6051e0, #ad79b9);
     padding: 20px;
@@ -246,37 +254,7 @@ container__register {
     font-size: 30px;
 }
 
-.scores {
-    margin-top: 20px;
-}
-.score-category {
-    background-color: #60439d;
-    padding: 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-}
-.score-category span {
-    font-size: 18px;
-}
-.score-category .percentage {
-    background-color: #3f40ae;
-    padding: 5px 15px;
-    border-radius: 50px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-}
-.general-score {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.general-score .percentage {
-    font-size: 40px;
-    font-weight: bold;
-    color: #ffe43a;
-}
+
 
 @keyframes zoom {
     0%{

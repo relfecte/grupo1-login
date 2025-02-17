@@ -42,7 +42,6 @@ body {
 /* Estilos para la tabla */
 table {
     width: 90%;
-    max-width: auto;
     border-collapse: collapse;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -101,11 +100,49 @@ td span {
     width: 50px; /* Ajusta el tamaño según lo necesites */
     height: 50px; /* Asegura que sea cuadrado o del tamaño deseado */
 }
+.tabla_pregunta {
+    width: 90%;
+    table-layout: fixed;
+    min-width: 900px;
 
+}
+
+.tabla_pregunta th:nth-child(1), .tabla_pregunta td:nth-child(1) {
+    width: 4.47%;
+}
+
+.tabla_pregunta th:nth-child(2), .tabla_pregunta td:nth-child(2) {
+    width: 12.68%;
+}
+
+.tabla_pregunta th:nth-child(3), .tabla_pregunta td:nth-child(3) {
+    width: 13.46%;
+}
+
+.tabla_pregunta th:nth-child(4), .tabla_pregunta td:nth-child(4) {
+    width: 12.06%;
+}
+
+.tabla_pregunta th:nth-child(5), .tabla_pregunta td:nth-child(5) {
+    width: 12.14%;
+}
+
+.tabla_pregunta th:nth-child(6), .tabla_pregunta td:nth-child(6) {
+    width: 12.89%;
+}
+
+.tabla_pregunta th:nth-child(7), .tabla_pregunta td:nth-child(7) {
+    width: 12.14%;
+}
+
+.tabla_pregunta th:nth-child(8), .tabla_pregunta td:nth-child(8) {
+    width: 20.16%;
+}
 
 </style>
 </head>
 <body>
+    <?php require "./inc/actions/logout.php"; ?>
     <div class="container">
         <header>
             <h1 class="h1__admin">Panel de Administración - <?php echo $_SESSION['usuario_usuario']?></h1>
@@ -177,11 +214,6 @@ td span {
            
         </nav>
        
-
-        
-        <footer class="menu">
-        <?php require "./inc/actions/logout.php"; ?>
-        </footer>
     </div>
 </body>
 </html>

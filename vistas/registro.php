@@ -21,20 +21,21 @@ verificarAccesoUsuario2();
     
 </head>
 <body>
+<?php require_once "../inc/actions/logout2.php"; ?>
     <div class="container__registro">
         <header class="header__registro">
             Puntuaciones del Quiz
         </header>
-        <div class="general-score__registro">
-            <h2>Puntaje General</h2>
-            <span id="puntaje-general" class="percentage__registro">0</span>
+        <div class="total-score__registro">
+            <h2>Puntaje Total</h2>
+            <span id="puntaje-total" class="percentage__registro">0</span>
         </div>
         <script>
             // Asignamos el valor del porcentaje calculado desde PHP
             const porcentajeTotal = <?php echo $_SESSION['procentaje']; ?>;
 
             // Obtenemos el elemento donde se mostrará el puntaje
-            const txtPuntaje = document.querySelector("#puntaje-general");
+            const txtPuntaje = document.querySelector("#puntaje-total");
 
             // Mostrar el porcentaje en el elemento HTML
             txtPuntaje.innerHTML = porcentajeTotal + '%';

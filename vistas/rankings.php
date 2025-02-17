@@ -73,9 +73,11 @@ $usuario_id = $_SESSION['usuario_id'];  // Suponiendo que el ID del usuario est√
     <link rel="stylesheet" href="../css/ranking.css">
 </head>
 <body>
+<?php require_once "../inc/actions/logout2.php"; ?>
     <div class="container">
-        <h1>Ranking de Usuarios</h1>
-
+        <header class="header_titulo">
+            Ranking de Usuarios
+        </header>
         <form method="GET" action="rankings.php"> <!-- Aseg√∫rate de que el archivo es ranking.php -->
             <label for="categoria">Seleccionar categor√≠a: </label>
             <select name="categoria" id="categoria" onchange="this.form.submit()">
@@ -116,5 +118,6 @@ $usuario_id = $_SESSION['usuario_id'];  // Suponiendo que el ID del usuario est√
             <button onclick="window.location.href='../bienvenida.php'" class="btn">Volver a inicio</button>
         </div>
     </div>
+    <script src="../js/ranking.js"></script>
 </body>
 </html>
