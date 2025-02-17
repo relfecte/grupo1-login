@@ -217,7 +217,9 @@ nav ul li ul li a {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 13px;
-    margin-top: -20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 .button-admin:hover {
@@ -248,5 +250,14 @@ nav ul li ul li a {
     margin-bottom: 50px;
     box-shadow: 2px 2px 4px #2a2929;
 }
+
+@media screen and (max-width: 510px) {
+    .container {
+        width: 90%; /* Ajusta el ancho a un 90% del viewport */
+        height: auto; /* Permite que la altura se adapte al contenido */
+        margin-top: 0; /* Ajusta el margen si es necesario */
+    }
+}
+
 
 
