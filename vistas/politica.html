@@ -54,7 +54,7 @@
         }
         .btn {
             display: block;
-            width: 100%;
+            width: 10%;
             padding: 10px;
             background-color: #66499e;
             color: #fff;
@@ -66,6 +66,9 @@
             cursor: pointer;
             transition: background-color 0.3s;
             text-transform: uppercase;
+            position: absolute;
+            right: 10px;
+            top: 10px
         }
         .btn:hover {
             background-color: #2a2929;
@@ -73,6 +76,48 @@
         a {
             text-decoration: none;
         }
+
+        @media screen and (max-width: 550px) {
+    .btn {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto; 
+        width: 20%;
+    }
+}
+
+        @media screen and (max-width: 467px) {
+    .btn {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto; 
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .btn {
+        top: auto;
+        bottom: -70px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .btn {
+        top: auto;
+        bottom: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+    }
+}
+
+
     </style>
 </head>
 <body>
