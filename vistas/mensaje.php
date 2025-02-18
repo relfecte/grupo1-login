@@ -1,7 +1,7 @@
 <?php
 
 // Obtener el mensaje y la URL de destino de la URL
-$mensaje = isset($_GET['mensaje']) ? urldecode($_GET['mensaje']) : 'Error, no se recibió el mensaje.';
+$mensaje = isset($_GET['mensaje']) ? urldecode($_GET['mensaje']) : 'Lo sentimos, ha ocurrido un error.';
 $url_destino = isset($_GET['url']) ? $_GET['url'] : '../index.php'; // Página de redirección por defecto
 
 ?>
