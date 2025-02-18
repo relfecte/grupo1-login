@@ -21,17 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar duplicados$con, $tabla, $campo, $valor, $mensaje
     if (verificarDuplicado($conexion, 'usuarios', 'usuario_email', $email)) {
-        redirigirConMensaje("Este correo ya está registrado.", '../../index.php');
+        redirigirConMensaje("Este correo ya está registrado.", '../index.php');
     }
     if (verificarDuplicado($conexion, 'usuarios', 'usuario_usuario', $usuario)) {
-        redirigirConMensaje("Este usuario ya está registrado.", '../../index.php');
+        redirigirConMensaje("Este usuario ya está registrado.", '../index.php');
     }
 
     // Registrar usuario
     if (registrarUsuario($conexion, $nombre, $apellido, $usuario, $clave, $email)) {
-        redirigirConMensaje("Usuario registrado correctamente.", '../../index.php');
+        redirigirConMensaje("Usuario registrado correctamente.", '../index.php');
     } else {
-        redirigirConMensaje("Error al registrar el usuario. Inténtalo de nuevo.", '../../index.php');
+        redirigirConMensaje("Error al registrar el usuario. Inténtalo de nuevo.", '../index.php');
     }
 }
 ?>

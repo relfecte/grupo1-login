@@ -23,16 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     validarPatrones($patron_opcion, $opcion4, "La opción 4 debe tener entre 1 y 100 caracteres.");
 
     if (verificarDuplicado($con, 'preguntas', 'pregunta', $pregunta)) {
-        redirigirConMensaje("Esta pregunta ya está registrada.");
+        redirigirConMensaje("Esta pregunta ya está registrada.", '../admin.php?section=preguntas');
         exit;
     }
 
     // Crear la pregunta
     if (crearPregunta($con, $categoria, $pregunta, $opcion_correcta, $opcion2, $opcion3, $opcion4)) {
-        redirigirConMensaje("Pregunta creada correctamente.", '../../admin.php?section=preguntas');
+        redirigirConMensaje("Pregunta creada correctamente.", '../admin.php?section=preguntas');
         exit;
     } else {
-        redirigirConMensaje("Error al crear la pregunta. Inténtalo de nuevo.");
+        redirigirConMensaje("Error al crear la pregunta. Inténtalo de nuevo.", '../admin.php?section=preguntas');
     }
 
 }

@@ -20,20 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verificar duplicados de email y usuario
     if (verificarDuplicado($con, 'usuarios', 'usuario_email', $email)) {
-        redirigirConMensaje("Este correo ya está registrado.");
+        redirigirConMensaje("Este correo ya está registrado.", '../admin.php?section=usuarios');
         exit;
     }
     if (verificarDuplicado($con, 'usuarios', 'usuario_usuario', $usuario)) {
-        redirigirConMensaje("Este usuario ya está registrado.");
+        redirigirConMensaje("Este usuario ya está registrado.", '../admin.php?section=usuarios');
         exit;
     }
 
     // crear usuario
     if (crearUsuario($con, $nombre, $apellido, $usuario, $clave, $email, $admin)) {
-        redirigirConMensaje("Usuario registrado correctamente.", '../../admin.php?section=usuarios');
+        redirigirConMensaje("Usuario registrado correctamente.", '../admin.php?section=usuarios');
         exit;
     } else {
-        redirigirConMensaje("Error al registrar el usuario. Inténtalo de nuevo.");
+        redirigirConMensaje("Error al registrar el usuario. Inténtalo de nuevo.", '../admin.php?section=usuarios');
     }
 }
 ?>

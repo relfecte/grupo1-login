@@ -12,7 +12,7 @@ function validarPatrones($patron, $valor, $mensaje) {
 }
 
 
-function redirigirConMensaje($mensaje, $url = null) {
+/*function redirigirConMensaje($mensaje, $url = null) {
     // Si no se pasa una URL, usamos la URL actual
     if ($url === null) {
         $url = $_SERVER['REQUEST_URI'];
@@ -23,6 +23,19 @@ function redirigirConMensaje($mensaje, $url = null) {
             alert('$mensaje');
             window.location = '$url';
         </script>";
+    exit();
+}*/
+function redirigirConMensaje($mensaje, $url_destino = null) {
+    // Codificar el mensaje para evitar problemas con caracteres especiales
+    $mensaje_codificado = urlencode($mensaje);
+    
+    // Si la URL de destino no es proporcionada, se redirige a la página principal (o puedes cambiarla)
+    if ($url_destino === null) {
+        $url_destino = '/grupo1-login/index.php';
+    }
+
+    // Redirigir a la página de mensaje con los parámetros
+    header("Location: /grupo1-login/vistas/mensaje.php?mensaje=$mensaje_codificado&url=$url_destino");
     exit();
 }
 

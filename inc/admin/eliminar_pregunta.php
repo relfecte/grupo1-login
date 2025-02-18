@@ -11,10 +11,13 @@ if (isset($_GET['pregunta_id'])) {
     // Verifica si la eliminación fue exitosa
     if ($resultado) {
         header("Location: ../../admin.php?section=preguntas");  // Redirige de vuelta al panel de preguntas
+        redirigirConMensaje("Pregunta eliminada correctamente.", '../admin.php?section=preguntas');
     } else {
-        echo "Error al eliminar la pregunta.";
+        redirigirConMensaje("Error al eliminar la pregunta.", '../admin.php?section=preguntas');
     }
 } else {
-    echo "No se ha especificado un ID de pregunta.";
+    redirigirConMensaje("No se ha especificado un ID de pregunta.", '../admin.php?section=preguntas');
+    
 }
+
 ?>

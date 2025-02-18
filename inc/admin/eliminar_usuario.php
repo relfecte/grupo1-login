@@ -10,11 +10,12 @@ if (isset($_GET['usuario_id'])) {
 
     // Verifica si la eliminación fue exitosa
     if ($resultado) {
-        header("Location: ../../admin.php?section=usuarios");  // Redirige de vuelta al panel de usuarios
+        redirigirConMensaje("Usuario eliminado correctamente.", '../admin.php?section=usuarios');
     } else {
-        echo "Error al eliminar el usuario.";
+        redirigirConMensaje("Error al eliminar la pregunta. Inténtalo de nuevo.", '../admin.php?section=usuarios');
     }
 } else {
-    echo "No se ha especificado un ID de usuario.";
+    redirigirConMensaje("No se ha especificado un ID de usuario.", '../admin.php?section=usuarios');
 }
+
 ?>

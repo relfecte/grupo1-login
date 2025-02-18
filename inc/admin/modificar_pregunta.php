@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Llamar a la función para actualizar la pregunta
     if (actualizarPregunta($con, $pregunta_id, $categoria, $pregunta_texto, $opcion_correcta, $opcion2, $opcion3, $opcion4)) {
-        redirigirConMensaje("Pregunta modificada correctamente.", '../../admin.php?section=preguntas');
+        redirigirConMensaje("Pregunta modificada correctamente.", '../admin.php?section=preguntas');
     } else {
-        redirigirConMensaje("Error al modificar la pregunta. Inténtalo de nuevo.");
+        redirigirConMensaje("Error al modificar la pregunta. Inténtalo de nuevo.", '../admin.php?section=preguntas');
     }
 }
 ?>
