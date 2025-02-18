@@ -15,7 +15,7 @@ $pregunta = obtenerPreguntaPorID($con, $pregunta_id);
 </head>
 <body>
 <form class="formulario-admin" action="../inc/admin/modificar_pregunta.php?pregunta_id=<?php echo $pregunta_id; ?>" method="POST">
-    <div class="header-admin">Modificar pregunta</div>
+    <div class="header-admin">Editar pregunta</div>
     <label class="label-admin">Categoría:</label>
     <input class="input-admin" type="text" name="categoria" value="<?php echo $pregunta['categoria']; ?>" required pattern="[a-zA-Z0-9\s]{3,50}" maxlength="50">
     <br>

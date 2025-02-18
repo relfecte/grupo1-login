@@ -1,9 +1,7 @@
-
 <?php
 include_once '../inc/database.php'; // Conexión a la base de datos
 $usuario_id = $_GET['usuario_id'];
 
-// Obtener datos del usuario
 $result = obtenerUsuarioPorID($con, $usuario_id);
 $usuario = obtener_resultados($result);
 ?>
@@ -17,7 +15,7 @@ $usuario = obtener_resultados($result);
 </head>
 <body>
 <form class="formulario-admin" action="../inc/admin/modificar_usuario.php?usuario_id=<?php echo $usuario_id; ?>" method="POST">
-    <div class="header-admin">Modificar usuario</div>
+    <div class="header-admin">Editar usuario</div>
     <label class="label-admin">Nombre:</label>
     <input class="input-admin" type="text" name="nombre" value="<?php echo $usuario['usuario_nombre']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40">
     <br>
@@ -34,12 +32,12 @@ $usuario = obtener_resultados($result);
     <input class="input-admin" type="password" name="clave" minlength="6">
     <br>
     <label class="label-admin">Cuenta Administrador:</label>
-    <select class="select-admin" name="admin" required>
+    <select id="admin" class="select-admin" name="admin" required>
         <option class="option-admin" value="1" <?php if ($usuario['usuario_admin'] == 1) echo 'selected'; ?>>ADMIN</option>
         <option class="option-admin" value="0" <?php if ($usuario['usuario_admin'] == 0) echo 'selected'; ?>>USUARIO</option>
     </select>
     <br>
-    <button class="button-admin" type="submit">Editar usuario</button>
+    <button class="button-admin" type="submit">Editar</button>
 </form>
 
 <script src="../js/crear-usuario.js"></script>

@@ -9,7 +9,7 @@
 <body>
 
 
-<form class="formulario-admin" action="./inc/admin/crear_usuario.php" method="POST">
+<form class="formulario-admin" action="../inc/admin/crear_usuario.php" method="POST">
     <div class="header-admin">Crear usuario</div>
     <label class="label-admin">Nombre:</label>
     <input class="input-admin" type="text" name="nombre" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
@@ -25,8 +25,9 @@
     <br>
     <label class="label-admin">Clave:</label>
     <input class="input-admin" type="password" name="clave" required minlength="6" title="La clave debe tener al menos 6 caracteres.">
+    <br>
     <label class="label-admin">Cuenta administrador:</label>
-    <select class="select-admin" name="admin" required>
+    <select id="admin" class="select-admin" name="admin" required>
         <option class="option-admin" value="1">ADMIN</option>
         <option class="option-admin" value="0">USUARIO</option>
     </select>
