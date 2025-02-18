@@ -40,7 +40,7 @@ $pregunta = obtenerPreguntaPorID($con, $pregunta_id);
     <input class="input-admin" type="text" name="opcion4" value="<?php echo $pregunta['opcion4']; ?>" required>
     <br>
 
-    <button class="button-admin" type="submit">Modificar Pregunta</button>
+    <button class="button-admin" type="submit">Modificar</button>
 </form>
 
 <script src="../js/crear-usuario.js"></script>

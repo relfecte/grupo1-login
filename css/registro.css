@@ -10,7 +10,7 @@
 
         body {
             padding: 20px;
-            height: 130vh;
+            height: 100vh;
             background: linear-gradient(#584bb4, #6a416b, #685082);
             display: flex;
             align-items: center;
@@ -26,7 +26,6 @@
             color: #fff;
             text-align: center;
             height: 600px;
-            margin-top: -200px;
         }
 
         .header__registro {

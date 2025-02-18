@@ -118,6 +118,6 @@ $usuario_id = $_SESSION['usuario_id'];  // Suponiendo que el ID del usuario est√
             <button onclick="window.location.href='../bienvenida.php'" class="btn">Volver a inicio</button>
         </div>
     </div>
-    <script src="../js/ranking.js"></script>
+    <script src="../js/ranking.js" defer></script>
 </body>
 </html>

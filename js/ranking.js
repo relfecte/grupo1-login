@@ -1,17 +1,16 @@
-window.onload = function() {
-    centrarUsuario();
+window.onload = function () {
+    setTimeout(centrarUsuario, 100); // Pequeño delay para asegurar que el contenido cargue bien
 };
 
-// Centrar al usuario en el contenedor
 function centrarUsuario() {
-    const currentUser = document.querySelector('.current-user');
+    const currentUser = document.querySelector(".current-user");
+    
     if (currentUser) {
-        const rankingContainer = document.querySelector('.ranking-container');
-        const userPosition = currentUser.offsetTop;
-        const containerHeight = rankingContainer.clientHeight;
+        currentUser.scrollIntoView({
+            block: "center", // Centra el elemento en el scroll
+            behavior: "smooth" // Hace que el desplazamiento sea fluido
+        });
 
-        // Desplazar el contenedor para centrar al usuario
-        rankingContainer.scrollTop = userPosition - (containerHeight / 2) + (currentUser.clientHeight / 2);
+        console.log("Centrando usuario en el ranking...");
     }
 }
-
