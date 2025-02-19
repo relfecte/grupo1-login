@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2025 a las 22:48:50
+-- Tiempo de generación: 19-02-2025 a las 22:50:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -55,7 +55,7 @@ INSERT INTO `calificaciones` (`calificacion_id`, `usuario_id`, `tests_totales`, 
 (2, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (9, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (10, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(11, 16, 28, 81, 26, 73, 1, 3, 1, 5, 0, 0, 0, 0, 1, 0),
+(11, 16, 37, 109, 33, 97, 2, 7, 1, 5, 0, 0, 0, 0, 2, 0),
 (12, 17, 3, 30, 0, 0, 3, 30, 0, 0, 0, 0, 0, 0, 0, 0),
 (13, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (14, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -71,7 +71,7 @@ INSERT INTO `calificaciones` (`calificacion_id`, `usuario_id`, `tests_totales`, 
 (24, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (25, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (26, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(27, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(32, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -387,7 +387,8 @@ INSERT INTO `preguntas` (`pregunta_id`, `categoria`, `pregunta`, `opcion_correct
 (296, 'general', '¿Cuál es el océano más grande del mundo?', 'Pacífico', 'Atlántico', 'Índico', 'Ártico'),
 (297, 'general', '¿Cuántos elementos tiene la tabla periódica?', '118', '112', '105', '101'),
 (298, 'general', '¿Qué animal es conocido por su habilidad para volar hacia atrás?', 'Colibrí', 'Murciélago', 'Golondrina', 'Pájaro carpintero'),
-(299, 'general', '¿Qué autor escribió \"Don Quijote de la Mancha\"?', 'Miguel de Cervantes', 'Gabriel García Márquez', 'Juan Rulfo', 'Pablo Neruda');
+(299, 'general', '¿Qué autor escribió \"Don Quijote de la Mancha\"?', 'Miguel de Cervantes', 'Gabriel García Márquez', 'Juan Rulfo', 'Pablo Neruda'),
+(309, 'general', 'fghjkldfghj', 'sdfghjk', 'sdfghjkl', 'sdfghjkl', 'sdfghjkl');
 
 -- --------------------------------------------------------
 
@@ -430,7 +431,7 @@ INSERT INTO `usuarios` (`usuario_id`, `usuario_nombre`, `usuario_apellido`, `usu
 (29, 'pll', 'pll', 'pll', 'd361f82153f6cd3251a272e5133edc5d88243ca1c6de017574051a60b1f93118dba3f88898d4a0ab48fce6302b02f01aed1961899e27e36c1bab5827d2469b5a', 'pll@gmail.com', 0),
 (30, 'qwas', 'qwas', 'qwas', '31e15c48cd7dd1224a8221e80a41d4ed28a6e2cf600bc83776dc378eeecc6ae71c3b1561b55dc4af91a71393e768ba3daebe250f1497c87bc23ddc8dc862f461', 'qwas@gmail.com', 1),
 (31, 'aszxc', 'aszxc', 'aszxc', '97566b9f4593708bfe6fb34e062c40bb6f9ddc19ff698361e7b576f712b6500bf060c4c313c149faae6e6a7f9104bea838c26479ef900bdee66a26971fa90837', 'aszxc@gamil.com', 1),
-(32, 'cvdfer', 'cvdfer', 'cvdfer', '2011fbd187560c0a3eb847f196221125eb16696eb0d754f0c0fb4d94cc326036cbab86006b4518f29bfb058f088188e7cd71b28da608e2d5a4f156ae008d78ea', 'cvdfer@gmail.com', 0);
+(34, 'eric', 'capde', 'eric', '0f81a727b4f34041863af773bd92735e294cf7efb6a8f4d4ce0058e5de84ef9b23bbdd84847a5583e7d6f0efd23444017227f9dacd42244045235d9aca913ff5', 'erci@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -441,7 +442,7 @@ INSERT INTO `usuarios` (`usuario_id`, `usuario_nombre`, `usuario_apellido`, `usu
 --
 ALTER TABLE `calificaciones`
   ADD PRIMARY KEY (`calificacion_id`),
-  ADD KEY `fk_usuario` (`usuario_id`);
+  ADD KEY `fk_usuario_id` (`usuario_id`);
 
 --
 -- Indices de la tabla `preguntas`
@@ -465,19 +466,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `calificacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `calificacion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `pregunta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `pregunta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=311;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `usuario_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restricciones para tablas volcadas
@@ -487,9 +488,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  ADD CONSTRAINT `calificaciones_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`),
-  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`usuario_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
