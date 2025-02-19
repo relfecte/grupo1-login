@@ -17,19 +17,19 @@ $usuario = obtener_resultados($result);
 <form class="formulario-admin" action="../inc/admin/modificar_usuario.php?usuario_id=<?php echo $usuario_id; ?>" method="POST">
     <div class="header-admin">Editar usuario</div>
     <label class="label-admin">Nombre:</label>
-    <input class="input-admin" type="text" name="nombre" value="<?php echo $usuario['usuario_nombre']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40">
+    <input class="input-admin" type="text" name="nombre" value="<?php echo $usuario['usuario_nombre']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El nombre debe contener entre 3 y 40 letras.">
     <br>
     <label class="label-admin">Apellido:</label>
-    <input class="input-admin" type="text" name="apellido" value="<?php echo $usuario['usuario_apellido']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40">
+    <input class="input-admin" type="text" name="apellido" value="<?php echo $usuario['usuario_apellido']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="El apellido debe contener entre 3 y 40 letras.">
     <br>
     <label class="label-admin">Usuario:</label>
-    <input class="input-admin" type="text" name="usuario" value="<?php echo $usuario['usuario_usuario']; ?>" required pattern="[a-zA-Z0-9]{3,20}" maxlength="20">
+    <input class="input-admin" type="text" name="usuario" value="<?php echo $usuario['usuario_usuario']; ?>" required pattern="[a-zA-Z0-9]{3,20}" maxlength="20" title="El usuario debe contener entre 3 y 20 caracteres alfanuméricos.">
     <br>
     <label class="label-admin">Email:</label>
-    <input class="input-admin" type="email" name="email" value="<?php echo $usuario['usuario_email']; ?>" required>
+    <input class="input-admin" type="email" name="email" value="<?php echo $usuario['usuario_email']; ?>" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un email válido.">
     <br>
     <label class="label-admin">Clave:</label>
-    <input class="input-admin" type="password" name="clave" minlength="6">
+    <input class="input-admin" type="password" name="clave" minlength="6" title="La clave debe tener al menos 6 caracteres.">
     <br>
     <label class="label-admin">Cuenta Administrador:</label>
     <select id="admin" class="select-admin" name="admin" required>

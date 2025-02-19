@@ -1,12 +1,26 @@
 <?php
 
 // Validaciones de valores con patrones
-function validarPatrones($patron, $valor, $mensaje) {
+/*function validarPatrones($patron, $valor, $mensaje) {
     if (!preg_match($patron, $valor)) {
         echo "
             <script>
                 alert('$mensaje');
             </script>";
+        exit();
+    }
+}*/
+function validarPatrones($patron, $valor, $mensaje) {
+    if (!preg_match($patron, $valor)) {
+        // Codificar el mensaje para evitar problemas con caracteres especiales
+        $mensaje_codificado = urlencode($mensaje);
+        
+        // Obtener la URL anterior o usar un valor por defecto si no está disponible
+        $url_destino = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '../../index.php';
+        $url_destino_codificado = urlencode($url_destino);
+
+        // Redirigir a la página de mensaje con los parámetros
+        header("Location: ../../vistas/mensaje.php?mensaje=$mensaje_codificado&url=$url_destino_codificado");
         exit();
     }
 }
