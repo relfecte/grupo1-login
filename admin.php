@@ -101,6 +101,14 @@ td span {
     width: 50px; /* Ajusta el tamaño según lo necesites */
     height: 50px; /* Asegura que sea cuadrado o del tamaño deseado */
 }
+.foto-categoria-p {
+    width: 50px; /* Ajusta el tamaño según lo necesites */
+    height: 45px; /* Asegura que sea cuadrado o del tamaño deseado */
+}
+.categoria-mag{
+    margin-top: 5px;
+}
+
 /*
 .tabla_pregunta {
     width: 90%;
@@ -256,9 +264,9 @@ td span {
                         <span>Calificaciones</span>
                     </a>
                 </li>
-                <li class="categoria">
+                <li class="categoria categoria-mag">
                     <a href="admin.php?section=preguntas" >
-                        <img src="img/puntos.png" alt="Calificaciones" class="foto-categoria">
+                        <img src="img/question.png" alt="Calificaciones" class="foto-categoria-p">
                         <span>Preguntas</span>
                     </a>
                     
