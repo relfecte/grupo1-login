@@ -43,6 +43,5 @@ $pregunta = obtenerPreguntaPorID($con, $pregunta_id);
     <button class="button-admin" type="submit">Modificar</button>
 </form>
 
-<script src="../js/crear-usuario.js"></script>
 </body>
 </html>

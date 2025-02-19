@@ -40,6 +40,5 @@ $usuario = obtener_resultados($result);
     <button class="button-admin" type="submit">Editar</button>
 </form>
 
-<script src="../js/crear-usuario.js"></script>
 </body>
 </html>
