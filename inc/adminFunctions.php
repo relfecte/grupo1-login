@@ -55,7 +55,7 @@ function mostrarPreguntas($conexion){
         <th>Opción 2</th>
         <th>Opción 3</th>
         <th>Opción 4</th>
-        <th><a href='./vistas/crear_pregunta.html'>Crear Pregunta</a></th>
+        <th><a href='./vistas/crear_pregunta.php'>Crear Pregunta</a></th>
     </tr>";
 
     while ($row = obtener_resultados($preguntas)) {

@@ -16,10 +16,19 @@ $pregunta = obtenerPreguntaPorID($con, $pregunta_id);
 <body>
 <form class="formulario-admin" action="../inc/admin/modificar_pregunta.php?pregunta_id=<?php echo $pregunta_id; ?>" method="POST">
     <div class="header-admin">Editar pregunta</div>
+    
     <label class="label-admin">Categoría:</label>
-    <input class="input-admin" type="text" name="categoria" value="<?php echo $pregunta['categoria']; ?>" required pattern="[a-zA-Z]{3,40}" maxlength="40" title="La categoría debe tener entre 3 y 40 caracteres alfanuméricos.">
+        <select class="input-admin" name="categoria" required>
+            <?php
+            $categorias = obtenerCategorias($con); // Función que obtiene las categorías
+            while ($categoria = obtener_resultados($categorias)) {
+                $nombreCategoria = ucfirst(strtolower($categoria['categoria'])); // Formato adecuado
+                $selected = ($pregunta['categoria'] == $categoria['categoria']) ? 'selected' : ''; // Mantiene seleccionada la categoría actual
+                echo "<option value='" . htmlspecialchars($categoria['categoria']) . "' $selected>$nombreCategoria</option>";
+            }
+            ?>
+        </select>
     <br>
-
     <label class="label-admin">Pregunta:</label>
     <textarea class="textarea-admin" name="pregunta" required pattern="[a-zA-Z0-9\s]{1,100}" maxlength="100" title="La pregunta debe tener entre 3 y 100 caracteres."><?php echo $pregunta['pregunta']; ?></textarea>
     <br>
