@@ -78,7 +78,7 @@ $url_destino = isset($_GET['url']) ? $_GET['url'] : '../index.php'; // Página d
 </head>
 <body>
     <div class="container">
-    <div class="header">Mensaje</div>
+    <div class="header">Aviso</div>
         <div id="mensaje">
         <h3><?php echo $mensaje; ?></h3>
         <p>Porfavor, espere 5 segundos o haga clic en el botón para continuar.</p>
