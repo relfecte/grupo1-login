@@ -1,5 +1,6 @@
 <?php
 require_once '../database.php';  // Asegúrate de incluir la conexión a la base de datos
+require_once '../functions.php';
 
 // Verifica si se ha enviado el ID de la pregunta
 if (isset($_GET['pregunta_id'])) {

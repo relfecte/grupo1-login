@@ -1,5 +1,6 @@
 <?php
 require_once '../database.php';  // Asegúrate de incluir la conexión a la base de datos
+require_once '../functions.php';
 
 // Verifica si se ha enviado el ID del usuario
 if (isset($_GET['usuario_id'])) {

@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['categoria'])) {
     <div class="container">
         <img src="../img/auris.png" alt="" class="img">
         <header>
-            <div class="puntaje">
+            <div class="puntaje" style="cursor: default;">
                 <img src="../img/puntos.png" alt="">
                 <span class="puntos" id="puntos">0</span>
             </div>

@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <img src="../img/auris.png" alt="" class="img">
         <header>
-            <div class="puntaje">
+            <div class="puntaje" onclick="window.location.href='../vistas/registro.php';">
                 <img src="../img/puntos.png" alt="">
                 <span class="puntos" id="puntos"></span>
                 
