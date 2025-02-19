@@ -271,16 +271,8 @@ function crearPregunta($con, $categoria, $pregunta, $opcion_correcta, $opcion2, 
     // Ejecutar la consulta para insertar la pregunta
     $ejecutar = mysqli_query($con, $query);
 
-    if ($ejecutar) {
-        // Llamar a la función para crear calificación nueva para la categoría
-        if (crearCalificacionNueva($con, $categoria)) {
-            return true; // Si la creación de calificación fue exitosa
-        } else {
-            return false; // Si hubo algún problema con la creación de la calificación
-        }
-    } else {
-        return false; // Error al insertar la pregunta
-    }
+    // Retornar true si la inserción fue exitosa, false en caso de error
+    return $ejecutar ? true : false;
 }
 
 
@@ -298,12 +290,7 @@ function obtenerPreguntaPorID($conexion, $pregunta_id) {
 }
 
 function actualizarPregunta($conexion, $pregunta_id, $categoria, $pregunta, $opcion_correcta, $opcion2, $opcion3, $opcion4) {
-    // Obtener la categoría actual de la pregunta antes de actualizarla
-    $query_categoria_actual = "SELECT categoria FROM preguntas WHERE pregunta_id = '$pregunta_id'";
-    $resultado_categoria = mysqli_query($conexion, $query_categoria_actual);
-    $categoria_actual = mysqli_fetch_assoc($resultado_categoria)['categoria'];
-
-    // Actualizar la pregunta
+    // Actualizar la pregunta en la base de datos
     $query = "UPDATE preguntas SET 
               categoria = '$categoria', 
               pregunta = '$pregunta', 
@@ -316,20 +303,9 @@ function actualizarPregunta($conexion, $pregunta_id, $categoria, $pregunta, $opc
     // Ejecutar la consulta para actualizar la pregunta
     $resultado = mysqli_query($conexion, $query);
 
-    if ($resultado) {
-        // Si la categoría ha cambiado, actualizar las calificaciones
-        if ($categoria != $categoria_actual) {
-            // Llamar a la función para crear calificaciones para la nueva categoría
-            if (!crearCalificacionNueva($conexion, $categoria)) {
-                return false; // Si la creación de las calificaciones falla, retornar false
-            }
-        }
-
-        return true; // Si todo es exitoso
-    } else {
-        return false; // Si la actualización de la pregunta falla, retornar false
-    }
+    return $resultado ? true : false; // Devolver true si la actualización fue exitosa, false en caso de error
 }
+
 
 
 function crearCalificacionInicialCompleta($con, $usuario_id) {
