@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     validarPatrones("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email, "Ingresa un email válido.");
    
     if (actualizarUsuario($con, $usuario_id, $nombre, $apellido, $usuario, $email, $admin, $clave)) {
-        redirigirConMensaje("Usuario modificado correctamente.", '../../admin.php');
+        redirigirConMensaje("Usuario modificado correctamente.", '../admin.php');
     } else {
-        redirigirConMensaje("Error al modificar el usuario. Inténtalo de nuevo.", '../../vistas/modificar_usuario.php?usuario_id=' . $usuario_id);
+        redirigirConMensaje("Error al modificar el usuario. Inténtalo de nuevo.", '../vistas/modificar_usuario.php?usuario_id=' . $usuario_id);
     }
 }
 ?>
