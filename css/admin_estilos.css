@@ -206,20 +206,18 @@ nav ul li ul li a {
 }
 
 .button-admin {
+   margin-top: -20px;
     align-self: center;
     background-color: #66499e;
     color: #fff;
     border: 0;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     font-weight: bold;
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 13px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
 }
 
 .button-admin:hover {
